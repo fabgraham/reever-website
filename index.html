@@ -52,13 +52,13 @@
     nav li{display:inline;}
     nav a {color:var(--text);text-decoration:none;font-weight:500;padding:0.2em 0.7em;border-radius: 1em;transition: background 0.2s;}
     nav a.active, nav a:focus {background:var(--accent);color:#fff;outline:none;}
-    .nav-toggle {display:none;background:none;border:none;font-size:1.8rem;margin-left:0.4em;cursor:pointer;}
+    .nav-toggle {display:none;background:none;border:none;font-size:1.8rem;margin-left:0.4em;cursor:pointer;color:var(--text);}
     .nav-toggle[aria-expanded="true"] span {transform:rotate(90deg);}
     @media (max-width: 768px) {
       .navbar {padding:0.7rem 0.7rem;}
       .nav-logo img {height:38px;}
       nav ul {flex-direction:column;position:fixed;top:3.5rem;left:0;width:100vw;background:var(--bg);max-height:0;overflow:hidden;transition:max-height 0.25s;box-shadow:0 2px 12px rgba(0,0,0,0.07);}
-      nav ul.open {max-height:320px;}
+      nav ul.open {max-height:calc(100vh - 3.5rem);}
       nav ul li {margin: 0.9em 0;}
       .nav-toggle {display:inline;}
       nav {flex:1;}
@@ -211,9 +211,9 @@
     /* Footer */
     footer{background:#fff;text-align:center;padding:2em 1em 1.4em 1em;color:var(--hero-text);font-size:0.98em;}
     .footer-social {margin-top:1.1em;}
-    .footer-social a {margin: 0 0.5em; color: #1292ff; font-size: 1.4em; display:inline-flex;}
+    .footer-social a {margin: 0 0.5em; color: #E4405F; font-size: 1.4em; display:inline-flex;}
     .footer-social a svg{width:1.4em;height:1.4em;fill:currentColor;}
-    .footer-social a:focus,.footer-social a:hover {color: #046ad2;outline:none;}
+    .footer-social a:focus,.footer-social a:hover {color: #FF6A88;outline:none;}
   </style>
 </head>
 <body>
@@ -226,9 +226,9 @@
     <ul id="nav-menu" class="nav-menu">
       <li><a href="#home" class="nav-link active">Home</a></li>
       <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#songs" class="nav-link">Song List</a></li>
-      <li><a href="#media" class="nav-link">Media</a></li>
-      <li><a href="#gigs" class="nav-link">Gigs</a></li>
+      <li><a href="#songs" class="nav-link">Songs</a></li>
+      <li><a href="#media" class="nav-link">Gallery</a></li>
+      <li><a href="#gigs" class="nav-link">Upcoming Gigs</a></li>
       <li><a href="#contact" class="nav-link">Contact Us</a></li>
     </ul>
   </nav>
@@ -243,8 +243,8 @@
       </h1>
       <p class="tagline">Pop-Rock Covers Band from Woking</p>
       <div class="hero-btns">
-        <a href="#gigs" class="cta-btn">See Gigs</a>
         <a href="#contact" class="cta-btn">Book Us</a>
+        <a href="#gigs" class="cta-btn">Next Gigs</a>
       </div>
     </div>
     <!--
@@ -436,7 +436,7 @@
       <fieldset class="form-row"><label for="date">Event Date<span class="required">*</span></label><input type="date" id="date" name="date" required/></fieldset>
       <fieldset class="form-row"><label for="venue">Venue</label><input type="text" id="venue" name="venue" autocomplete="organization"/></fieldset>
       <fieldset class="form-row"><label for="message">Message<span class="required">*</span></label><textarea id="message" name="message" rows="4" required></textarea></fieldset>
-      <div><button type="submit" class="cta-btn">Send Booking Request</button></div>
+      <div><button type="submit" class="cta-btn">Send</button></div>
       <div id="formMsg" class="form-msg" role="status" style="display:none"></div>
     </form>
     <p class="form-note"><span class="required">*</span> Required fields</p>
