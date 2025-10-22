@@ -8,7 +8,7 @@
   <meta property="og:title" content="Reever – Pop-Rock Covers Band from Woking">
   <meta property="og:description" content="Pop-rock covers band from Woking. Live gigs and parties. See dates, media, and book us!">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="hero-placeholder.jpg"> <!-- Swap this -->
+  <meta property="og:image" content="public/media/reever-live-photo.jpg">
 
   <!-- JSON-LD MusicGroup schema -->
   <script type="application/ld+json">{
@@ -42,7 +42,10 @@
       --footer-bg: #d7e5ff;
     }
     *,*::before,*::after{box-sizing:border-box;}
-    html {scroll-behavior: smooth; font-family: var(--font); background: var(--bg); color: var(--text);}
+    html {font-family: var(--font); background: var(--bg); color: var(--text);}
+    @media (prefers-reduced-motion: no-preference) {
+      html {scroll-behavior: smooth;}
+    }
     body {margin:0; padding:0; font-size: 1.1rem; line-height:1.65;}
     header {position: sticky;top:0;width:100%;z-index:20;background: var(--bg);box-shadow:0 1px 0 #eee;}
     .navbar {display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0.7rem 1.5rem;}
@@ -50,8 +53,10 @@
     .nav-logo img {height:44px;width:auto;display:block;}
     nav ul {display:flex;gap:1rem;list-style:none;padding:0;margin:0;}
     nav li{display:inline;}
-    nav a {color:var(--text);text-decoration:none;font-weight:500;padding:0.2em 0.7em;border-radius: 1em;transition: background 0.2s;}
-    nav a.active, nav a:focus {background:var(--accent);color:#fff;outline:none;}
+    nav a {color:var(--text);text-decoration:none;font-weight:500;padding:0.2em 0.7em;border-radius: 1em;transition: background 0.2s, color 0.2s;}
+    nav a.active {background:var(--accent);color:#fff;}
+    nav a:focus-visible {outline:3px solid var(--accent);outline-offset:3px;}
+    nav a.active:focus-visible {outline-color:#fff;}
     .nav-toggle {display:none;background:none;border:none;font-size:1.8rem;margin-left:0.4em;cursor:pointer;color:var(--text);}
     .nav-toggle[aria-expanded="true"] span {transform:rotate(90deg);}
     @media (max-width: 768px) {
@@ -220,7 +225,7 @@
 <header id="top">
   <nav aria-label="Main navigation" class="navbar">
     <a href="#home" class="nav-logo" aria-label="Reever home">
-      <img src="public/media/reever-logo-white.jpg" alt="Reever logo">
+      <img src="public/media/reever-logo-white.jpg" alt="Reever logo" decoding="async">
     </a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu"> <span aria-hidden="true">☰</span> </button>
     <ul id="nav-menu" class="nav-menu">
@@ -239,7 +244,7 @@
     <div class="hero-content">
       <h1 class="hero-title">
         <span class="sr-only">Reever</span>
-        <img src="public/media/reever-logo-black.jpeg" alt="Reever band logo" class="hero-logo">
+        <img src="public/media/reever-logo-black.jpeg" alt="Reever band logo" class="hero-logo" decoding="async">
       </h1>
       <p class="tagline">Pop-Rock Covers Band from Woking</p>
       <div class="hero-btns">
@@ -256,7 +261,7 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" aria-label="About">
+  <section id="about" aria-label="About" tabindex="-1">
     <h2>About Reever</h2>
     <div class="about-layout">
       <div class="about-overview">
@@ -270,7 +275,7 @@
         </p>
         <ul class="about-highlights">
           <li>We're ready for weddings, birthdays, pubs, &amp; corporate events</li>
-          <li>We've got al the equipement needed, including PA and lighting</li>
+          <li>We've got all the equipment needed, including PA and lighting</li>
         </ul>
       </div>
       <div class="about-people">
@@ -298,7 +303,7 @@
   </section>
 
   <!-- Song List Section -->
-  <section id="songs" aria-label="Song List">
+  <section id="songs" aria-label="Song List" tabindex="-1">
     <h2>Song List</h2>
     <p class="songs-lede">Click the button to check our full setlist.</p>
     <div class="songlist-cta">
@@ -370,22 +375,22 @@
   </section>
 
   <!-- Media Section -->
-  <section id="media" aria-label="Media gallery and video">
+  <section id="media" aria-label="Media gallery and video" tabindex="-1">
     <h2>See Us in Action</h2>
     <div class="media-carousel" role="region" aria-label="Band photo carousel">
       <button type="button" class="carousel-control prev" aria-label="Previous photo">‹</button>
       <div class="carousel-window">
         <div class="carousel-track">
           <figure class="carousel-slide">
-            <img src="public/media/reever-live-photo.jpg" alt="Reever playing live at the Red Lion pub"/>
+            <img src="public/media/reever-live-photo.jpg" alt="Reever playing live at the Red Lion pub" loading="lazy" decoding="async"/>
             <!--<figcaption>The Crown and Anchor</figcaption> -->
           </figure>
           <figure class="carousel-slide">
-            <img src="public/media/reever-live-photo.jpg" alt="Reever playing live at the Red Lion pub"/>
+            <img src="public/media/reever-live-photo.jpg" alt="Reever playing live at the Red Lion pub" loading="lazy" decoding="async"/>
             <!-- <figcaption>Live Rehearsal</figcaption> -->
           </figure>
           <figure class="carousel-slide">
-            <img src="public/media/reever-live-photo.jpg" alt="Reever playing live at the Red Lion pub"/>
+            <img src="public/media/reever-live-photo.jpg" alt="Reever playing live at the Red Lion pub" loading="lazy" decoding="async"/>
             <!-- <figcaption>Birthday Bash Encore</figcaption> -->
           </figure>
         </div>
@@ -404,11 +409,11 @@
   </section>
 
   <!-- Gigs Section -->
-  <section id="gigs" aria-label="Upcoming gigs, book us">
+  <section id="gigs" aria-label="Upcoming gigs, book us" tabindex="-1">
     <h2>Upcoming Gigs</h2>
     <div class="gigs-list">
       <article class="gig-item">
-        <time datetime="2025-11-02T20:00" class="gig-dateblock">
+        <time datetime="2025-11-29T20:00" class="gig-dateblock">
           <span class="gig-month">Nov</span>
           <span class="gig-day">29</span>
           <span class="gig-weekday">Sat</span>
@@ -418,7 +423,7 @@
           <p class="gig-venue">Knaphill</p>
           <p class="gig-meta">FROM 20:00</p>
           <div class="gig-actions">
-            <a href="#" class="gig-addcal" data-title="Live at The Royal Oak" data-date="2025-11-02T20:00" data-venue="The Royal Oak" data-town="Woking">Add to Calendar</a>
+            <a href="#" class="gig-addcal" data-title="Live at The Royal Oak" data-date="2025-11-29T20:00" data-venue="The Royal Oak" data-town="Woking">Add to Calendar</a>
           </div>
         </div>
       </article>
@@ -427,7 +432,7 @@
   </section>
 
   <!-- Get in Touch Section -->
-  <section id="contact" aria-label="Contact for booking">
+  <section id="contact" aria-label="Contact for booking" tabindex="-1">
     <h2>Get in Touch</h2>
     <form class="contact-form" id="bookForm" novalidate aria-label="Booking form">
       <fieldset class="form-row"><label for="name">Name<span class="required">*</span></label><input type="text" id="name" name="name" required autocomplete="name"/></fieldset>
@@ -464,7 +469,22 @@ navToggle.addEventListener('click',()=>{
 // Smooth scroll and active link highlighting
 const navLinks=[...document.querySelectorAll('.nav-link')];
 const sections=[...document.querySelectorAll('main section')];
+const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 function activateNav(idx){navLinks.forEach((a,i)=>a.classList.toggle('active',idx===i));}
+function scrollToSection(target){
+  if(!target)return;
+  const offset=target.offsetTop-61;
+  if(prefersReducedMotion.matches){
+    window.scrollTo(0,offset);
+  }else{
+    window.scrollTo({top:offset,behavior:'smooth'});
+  }
+  try{
+    target.focus({preventScroll:true});
+  }catch(_){
+    target.focus();
+  }
+}
 window.addEventListener('scroll',()=>{
   let idx=0,from=window.scrollY+82;
   sections.forEach((sec,i)=>{if(sec.offsetTop-60<from)idx=i;});
@@ -474,9 +494,13 @@ navLinks.forEach((link,idx)=>{
   link.addEventListener('click',e=>{
     e.preventDefault();
     if(window.innerWidth<769){navMenu.classList.remove('open');navToggle.setAttribute('aria-expanded','false');}
-    document.getElementById(link.getAttribute('href').slice(1)).focus();
-    window.scrollTo({top:document.getElementById(link.getAttribute('href').slice(1)).offsetTop-61,behavior:'smooth'});
-    activateNav(idx);
+    const targetId=link.getAttribute('href').slice(1);
+    const target=document.getElementById(targetId);
+    if(target){
+      if(!target.hasAttribute('tabindex')){target.setAttribute('tabindex','-1');}
+      scrollToSection(target);
+      activateNav(idx);
+    }
   });
 });
 // Song list modal
