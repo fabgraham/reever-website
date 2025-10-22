@@ -119,7 +119,7 @@ async function sendWithSendGrid(config: EmailConfig, emailData: { subject: strin
 }
 
 // Send email using Nodemailer (for SMTP)
-async function sendWithNodemailer(config: EmailConfig, emailData: { subject: string; html: string; text: string }, formData: ContactFormData) {
+async function sendWithNodemailer(emailData: { subject: string; html: string; text: string }, formData: ContactFormData) {
   // This would require installing nodemailer
   // For now, we'll throw an error with instructions
   throw new Error('Nodemailer not implemented. Please install nodemailer and implement SMTP sending.');
@@ -161,7 +161,7 @@ export async function sendContactEmail(formData: ContactFormData): Promise<void>
         await sendWithSendGrid(config, emailData, formData);
         break;
       case 'nodemailer':
-        await sendWithNodemailer(config, emailData, formData);
+        await sendWithNodemailer(emailData, formData);
         break;
       case 'console':
       default:

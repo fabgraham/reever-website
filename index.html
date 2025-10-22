@@ -304,15 +304,15 @@
 
   <!-- Song List Section -->
   <section id="songs" aria-label="Song List" tabindex="-1">
-    <h2>Song List</h2>
-    <p class="songs-lede">Click the button to check our full setlist.</p>
+    <h2>Our Setlist</h2>
+    <p class="songs-lede">Click the below button to check our full setlist.</p>
     <div class="songlist-cta">
-      <button type="button" class="cta-btn songlist-open" aria-expanded="false">Check our Song List</button>
+      <button type="button" class="cta-btn songlist-open" aria-expanded="false">Setlist</button>
     </div>
     <div class="songlist-overlay" aria-hidden="true">
       <div class="songlist-modal" role="dialog" aria-modal="true" aria-labelledby="songlist-title">
         <button type="button" class="modal-close" aria-label="Close song list">&times;</button>
-        <h3 id="songlist-title">Song List</h3>
+        <h3 id="songlist-title">Setlist</h3>
         <p class="songlist-note">We can tailor the setlist to your event.</p>
         <div class="songlist-columns">
           <ul>
@@ -510,7 +510,7 @@ const closeSongBtn=document.querySelector('.songlist-overlay .modal-close');
 const downloadSongBtn=document.querySelector('.songlist-download');
 const songListText = `
 <div style="font-family:system-ui,sans-serif;font-size:1rem;padding:24px;">
-  <h2 style="text-align:center;margin-bottom:1.4em;">Song List</h2>
+  <h2 style="text-align:center;margin-bottom:1.4em;">Setlist</h2>
   <div class="songlist-columns" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.4rem;max-width:750px;margin:0 auto;">
     <ul style="list-style:none;margin:0;padding:0;">
       <li>Alive – Pearl Jam</li>

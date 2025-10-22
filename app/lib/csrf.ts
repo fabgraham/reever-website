@@ -1,5 +1,3 @@
-import { NextRequest } from 'next/server';
-
 // Simple CSRF token generation (in production, use a more robust solution)
 export function generateCSRFToken(): string {
   return Array.from(crypto.getRandomValues(new Uint8Array(32)))
@@ -8,14 +6,14 @@ export function generateCSRFToken(): string {
 }
 
 // Validate CSRF token (basic implementation)
-export function validateCSRFToken(token: string, request: NextRequest): boolean {
+export function validateCSRFToken(token: string): boolean {
   // In production, you'd validate against a stored token or use a signed token
   // For now, we'll just check if it exists and has the right format
   return Boolean(token && token.length === 64 && /^[a-f0-9]+$/.test(token));
 }
 
 // Generate a time-based token (more secure alternative)
-export function generateTimedCSRFToken(secret: string = 'default-secret'): string {
+export function generateTimedCSRFToken(): string {
   const timestamp = Date.now().toString();
   const randomBytes = crypto.getRandomValues(new Uint8Array(16));
   const randomHex = Array.from(randomBytes)
