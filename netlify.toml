@@ -1,10 +1,2 @@
 [build]
-  command = ""
   publish = "public"
-  ignore = "exit 0"
-
-# Explicitly disable Next.js plugin to force static site deployment
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-  [plugins.inputs]
-    disable = true
