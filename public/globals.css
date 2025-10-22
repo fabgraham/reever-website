@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Reever Website Styles */
+/* All styles are embedded in index.html */
 
 :root {
   --background: #ffffff;
