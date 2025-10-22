@@ -434,13 +434,13 @@
   <!-- Get in Touch Section -->
   <section id="contact" aria-label="Contact for booking" tabindex="-1">
     <h2>Get in Touch</h2>
-    <form class="contact-form" id="bookForm" novalidate aria-label="Booking form">
-      <fieldset class="form-row"><label for="name">Name<span class="required">*</span></label><input type="text" id="name" name="name" required autocomplete="name"/></fieldset>
-      <fieldset class="form-row"><label for="email">Email<span class="required">*</span></label><input type="email" id="email" name="email" required autocomplete="email"/></fieldset>
-      <fieldset class="form-row"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" autocomplete="tel"/></fieldset>
-      <fieldset class="form-row"><label for="date">Event Date<span class="required">*</span></label><input type="date" id="date" name="date" required/></fieldset>
-      <fieldset class="form-row"><label for="venue">Venue</label><input type="text" id="venue" name="venue" autocomplete="organization"/></fieldset>
-      <fieldset class="form-row"><label for="message">Message<span class="required">*</span></label><textarea id="message" name="message" rows="4" required></textarea></fieldset>
+    <form class="contact-form" id="bookForm" novalidate aria-label="Booking form" autocomplete="on">
+      <fieldset class="form-row"><label for="name">Name<span class="required">*</span></label><input type="text" id="name" name="name" required autocomplete="name" maxlength="100" spellcheck="false"/></fieldset>
+      <fieldset class="form-row"><label for="email">Email<span class="required">*</span></label><input type="email" id="email" name="email" required autocomplete="email" maxlength="254" spellcheck="false"/></fieldset>
+      <fieldset class="form-row"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" autocomplete="tel" maxlength="20" spellcheck="false"/></fieldset>
+      <fieldset class="form-row"><label for="date">Event Date<span class="required">*</span></label><input type="date" id="eventDate" name="eventDate" required autocomplete="off"/></fieldset>
+      <fieldset class="form-row"><label for="venue">Venue</label><input type="text" id="venue" name="venue" autocomplete="organization" maxlength="200" spellcheck="false"/></fieldset>
+      <fieldset class="form-row"><label for="message">Message<span class="required">*</span></label><textarea id="message" name="message" rows="4" required maxlength="2000" placeholder="Tell us about your event, preferred dates, and any special requirements..."></textarea></fieldset>
       <div><button type="submit" class="cta-btn">Send</button></div>
       <div id="formMsg" class="form-msg" role="status" style="display:none"></div>
     </form>
@@ -666,20 +666,140 @@ function makeICS(title,date,venue,town){
     document.body.appendChild(link);link.click();setTimeout(()=>{document.body.removeChild(link);URL.revokeObjectURL(url)},300);
   });
 });
-// Booking Form Validation
+// Booking Form Validation and Secure Submission
 const form=document.getElementById('bookForm'),msg=document.getElementById('formMsg');
-form.addEventListener('submit',e=>{
-  e.preventDefault();
-  let valid=true,first=null;
-  [...form.elements].forEach((el)=>{
-    if(!el.checkValidity&&el.tagName!=='BUTTON')return;
-    if(el.required&&(el.tagName==='INPUT'||el.tagName==='TEXTAREA')&&!el.value.trim()){
-      el.style.borderColor='#e52560';valid=false;first=first||el;}
-    else{el.style.borderColor='';}
-    if(el.type==='email'&&el.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)){el.style.borderColor='#e52560';valid=false;first=first||el;}
+let isSubmitting=false;
+
+// Generate CSRF token
+function generateCSRFToken(){
+  return Array.from(crypto.getRandomValues(new Uint8Array(32)))
+    .map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+// Sanitize input to prevent XSS
+function sanitizeInput(str){
+  const div=document.createElement('div');
+  div.textContent=str;
+  return div.innerHTML.replace(/[<>'"&]/g,char=>{
+    const map={'<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#x27;','&':'&amp;'};
+    return map[char]||char;
   });
-  if(!valid){msg.textContent='Please fill in all required fields!';msg.style.display='block';msg.className='form-msg';first&&first.focus();return;}
-  msg.textContent='Thank you! We have your enquiry and will be in touch soon.';msg.style.display='block';msg.className='form-msg msg-success';form.reset();setTimeout(()=>{msg.style.display='none';},6000);
+}
+
+// Enhanced validation
+function validateForm(){
+  let valid=true,first=null;
+  const errors=[];
+  
+  [...form.elements].forEach((el)=>{
+    if(el.tagName==='BUTTON')return;
+    el.style.borderColor='';
+    
+    if(el.required&&!el.value.trim()){
+      el.style.borderColor='#e52560';
+      valid=false;
+      first=first||el;
+      errors.push(`${el.name||el.id} is required`);
+    }
+    
+    if(el.type==='email'&&el.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)){
+      el.style.borderColor='#e52560';
+      valid=false;
+      first=first||el;
+      errors.push('Please enter a valid email address');
+    }
+    
+    if(el.type==='tel'&&el.value&&!/^[\d\s\-\+\(\)]+$/.test(el.value)){
+      el.style.borderColor='#e52560';
+      valid=false;
+      first=first||el;
+      errors.push('Please enter a valid phone number');
+    }
+    
+    if(el.type==='date'&&el.value){
+      const selectedDate=new Date(el.value);
+      const today=new Date();
+      today.setHours(0,0,0,0);
+      if(selectedDate<today){
+        el.style.borderColor='#e52560';
+        valid=false;
+        first=first||el;
+        errors.push('Event date must be in the future');
+      }
+    }
+  });
+  
+  return {valid,first,errors};
+}
+
+// Submit form securely
+async function submitForm(formData){
+  try{
+    const response=await fetch('/api/contact',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'X-CSRF-Token':formData.csrfToken
+      },
+      body:JSON.stringify(formData)
+    });
+    
+    const result=await response.json();
+    
+    if(!response.ok){
+      throw new Error(result.error||'Submission failed');
+    }
+    
+    return result;
+  }catch(error){
+    console.error('Form submission error:',error);
+    throw error;
+  }
+}
+
+form.addEventListener('submit',async(e)=>{
+  e.preventDefault();
+  
+  if(isSubmitting)return;
+  
+  const validation=validateForm();
+  if(!validation.valid){
+    msg.textContent=validation.errors[0]||'Please fill in all required fields correctly!';
+    msg.style.display='block';
+    msg.className='form-msg';
+    validation.first&&validation.first.focus();
+    return;
+  }
+  
+  isSubmitting=true;
+  msg.textContent='Sending your message...';
+  msg.style.display='block';
+  msg.className='form-msg';
+  
+  try{
+    const formData={
+      name:sanitizeInput(form.name.value.trim()),
+      email:sanitizeInput(form.email.value.trim()),
+      phone:sanitizeInput(form.phone.value.trim()),
+      eventDate:form.eventDate.value,
+      venue:sanitizeInput(form.venue.value.trim()),
+      message:sanitizeInput(form.message.value.trim()),
+      csrfToken:generateCSRFToken()
+    };
+    
+    await submitForm(formData);
+    
+    msg.textContent='Thank you! We have received your enquiry and will be in touch soon.';
+    msg.className='form-msg msg-success';
+    form.reset();
+    setTimeout(()=>{msg.style.display='none';},8000);
+    
+  }catch(error){
+    msg.textContent=error.message||'Sorry, there was an error sending your message. Please try again.';
+    msg.className='form-msg';
+  }finally{
+    isSubmitting=false;
+  }
 });
 </script>
 </body>
