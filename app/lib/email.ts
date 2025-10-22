@@ -119,6 +119,7 @@ async function sendWithSendGrid(config: EmailConfig, emailData: { subject: strin
 }
 
 // Send email using Nodemailer (for SMTP)
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function sendWithNodemailer(emailData: { subject: string; html: string; text: string }, formData: ContactFormData) {
   // This would require installing nodemailer
   // For now, we'll throw an error with instructions

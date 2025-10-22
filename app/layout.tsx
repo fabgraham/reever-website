@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Image from "next/image";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -29,7 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <header className="w-full flex items-center justify-start py-4 px-8">
-          <img src="/media/reever-logo.svg" alt="Reever Logo" style={{ height: 40 }} />
+          <Image src="/media/reever-logo.svg" alt="Reever Logo" width={120} height={40} priority />
         </header>
         {children}
       </body>
