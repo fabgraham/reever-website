@@ -1,2 +1,21 @@
 [build]
   publish = "public"
+  ignore = "exit 0"
+
+# Explicitly prevent framework detection
+[build.environment]
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+  DISABLE_NETLIFY_PLUGIN_NEXTJS = "true"
+
+# Force static site deployment
+[context.production]
+  publish = "public"
+  ignore = "exit 0"
+
+[context.deploy-preview]
+  publish = "public"
+  ignore = "exit 0"
+
+[context.branch-deploy]
+  publish = "public"
+  ignore = "exit 0"

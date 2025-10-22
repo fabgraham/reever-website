@@ -1,0 +1,17 @@
+# Prevent framework detection
+next.config.*
+nuxt.config.*
+gatsby-config.*
+vue.config.*
+angular.json
+svelte.config.*
+vite.config.*
+webpack.config.*
+rollup.config.*
+
+# Development files
+*.log
+.env*
+node_modules/
+.git/
+.DS_Store

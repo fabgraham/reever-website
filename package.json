@@ -1,0 +1,14 @@
+{
+  "name": "reever-static-site",
+  "version": "1.0.0",
+  "description": "Static HTML website for Reever band",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "cd public && python3 -m http.server 8000",
+    "serve": "cd public && python3 -m http.server 8000"
+  },
+  "keywords": ["static", "html", "band", "website"],
+  "author": "Reever",
+  "license": "MIT",
+  "type": "module"
+}
