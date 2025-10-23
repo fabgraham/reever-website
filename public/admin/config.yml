@@ -1,0 +1,60 @@
+backend:
+  name: netlify-identity-widget
+
+media_folder: "public/media"
+public_folder: "/media"
+
+collections:
+  - name: "gigs"
+    label: "Gigs"
+    folder: "public/content/gigs"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Date & Time", name: "date", widget: "datetime"}
+      - {label: "Venue", name: "venue", widget: "string"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Event Type", name: "event_type", widget: "select", options: ["Concert", "Festival", "Private Event", "Open Mic"]}
+      - {label: "Ticket Link", name: "ticket_link", widget: "string", required: false}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Featured Gig", name: "featured", widget: "boolean", default: false}
+
+  - name: "gallery"
+    label: "Gallery"
+    folder: "public/content/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Caption", name: "caption", widget: "string", required: false}
+      - {label: "Category", name: "category", widget: "select", options: ["Live Performance", "Studio", "Behind the Scenes", "Promo"]}
+      - {label: "Date Taken", name: "date", widget: "datetime"}
+      - {label: "Show in Carousel", name: "carousel", widget: "boolean", default: true}
+
+  - name: "members"
+    label: "Band Members"
+    folder: "public/content/members"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Instrument/Role", name: "role", widget: "string"}
+      - {label: "Bio", name: "bio", widget: "text", required: false}
+      - {label: "Photo", name: "photo", widget: "image", required: false}
+      - {label: "Active Member", name: "active", widget: "boolean", default: true}
+
+  - name: "setlists"
+    label: "Setlists"
+    folder: "public/content/setlists"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Gig Date", name: "gig_date", widget: "datetime"}
+      - {label: "Venue", name: "venue", widget: "string"}
+      - label: "Songs"
+        name: "songs"
+        widget: "list"
+        fields:
+          - {label: "Artist/Band", name: "artist", widget: "string"}
+          - {label: "Song Title", name: "title", widget: "string"}
+      - {label: "Notes", name: "notes", widget: "text", required: false}
