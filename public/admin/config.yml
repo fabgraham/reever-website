@@ -1,5 +1,10 @@
 backend:
-  name: netlify-identity-widget
+  name: git-gateway
+  branch: main # or master, depending on your default branch
+
+# Enable Netlify Identity for authentication
+netlify_identity:
+  enabled: true
 
 media_folder: "public/media"
 public_folder: "/media"
