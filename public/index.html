@@ -866,6 +866,7 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       transition: transform 0.2s, box-shadow 0.2s;
+      background: #fff;
     }
 
     .instagram-post:hover,
@@ -878,7 +879,6 @@
       display: block;
       width: 100%;
       height: 100%;
-      position: relative;
     }
 
     .instagram-post img {
@@ -888,31 +888,7 @@
       display: block;
     }
 
-    .instagram-post-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
-      opacity: 0;
-      transition: opacity 0.3s;
-      display: flex;
-      align-items: flex-end;
-      padding: 1rem;
-      color: #fff;
-    }
 
-    .instagram-post:hover .instagram-post-overlay {
-      opacity: 1;
-    }
-
-    .instagram-post-caption {
-      font-size: 0.9rem;
-      line-height: 1.4;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
 
     .instagram-loading {
       text-align: center;
@@ -1455,11 +1431,8 @@
       <p class="instagram-intro">Stay updated with our latest gigs, and band updates on
         Instagram @reever.band</p>
 
-      <div id="instagram-feed" class="instagram-feed" role="feed" aria-busy="true">
-        <div class="instagram-loading" aria-live="polite">
-          <div class="spinner" aria-hidden="true"></div>
-          <p>Loading Instagram posts...</p>
-        </div>
+      <div id="instagram-feed" class="instagram-feed" role="feed">
+        <!-- Posts will be loaded automatically by JavaScript -->
       </div>
 
       <div class="instagram-cta" style="text-align:center;margin-top:2.5rem;">
@@ -1845,123 +1818,6 @@
         document.body.appendChild(link); link.click(); setTimeout(() => { document.body.removeChild(link); URL.revokeObjectURL(url) }, 300);
       });
     });
-    // Instagram Feed Integration
-    async function loadInstagramFeed() {
-      const feedContainer = document.getElementById('instagram-feed');
-      const fallbackContainer = document.getElementById('instagram-fallback');
-
-      // Instagram posts data - ONLY 3 POSTS
-      // 
-      // HOW TO CONNECT TO YOUR REAL INSTAGRAM:
-      // Option 1 (Manual - Recommended for static sites):
-      //   1. Go to https://www.instagram.com/reever.band/
-      //   2. Open your 3 latest posts
-      //   3. For each post: Right-click image > Save image as > Save to media/ folder (e.g., instagram-1.jpg)
-      //   4. Copy the post URL and caption
-      //   5. Update the array below with your real data
-      //   6. Update this every time you want to show new posts
-      //
-      // Option 2 (Automatic - Requires backend):
-      //   Use a service like Juicer.io, SnapWidget, or build a serverless function
-      //   that fetches from Instagram API (requires OAuth and access tokens)
-      //
-      const instagramPosts = [
-        {
-          url: 'https://www.instagram.com/reever.band/',
-          image: 'media/reever-live-photo.jpg',
-          caption: 'Live at The Red Lion! 🎸 #livemusic #coversband'
-        },
-        {
-          url: 'https://www.instagram.com/reever.band/',
-          image: 'media/reever-band-photo.jpg',
-          caption: 'The band is ready to rock! 🎵 #reeverband #woking'
-        },
-        {
-          url: 'https://www.instagram.com/reever.band/',
-          image: 'media/reever-band-performance-1.jpg',
-          caption: 'Getting ready for the weekend gig! 🔥 #bandlife'
-        }
-      ];
-
-      try {
-        feedContainer.innerHTML = '';
-        feedContainer.setAttribute('aria-busy', 'false');
-
-        let loadedCount = 0;
-
-        for (const post of instagramPosts) {
-          try {
-            const postDiv = document.createElement('div');
-            postDiv.className = 'instagram-post';
-
-            const link = document.createElement('a');
-            link.href = post.url;
-            link.target = '_blank';
-            link.rel = 'noopener';
-            link.setAttribute('aria-label', `View Instagram post: ${post.caption}`);
-
-            const img = document.createElement('img');
-            img.src = post.image;
-            img.alt = post.caption;
-            img.loading = 'lazy';
-            img.decoding = 'async';
-
-            const overlay = document.createElement('div');
-            overlay.className = 'instagram-post-overlay';
-            overlay.innerHTML = `<p class="instagram-post-caption">${post.caption}</p>`;
-
-            link.appendChild(img);
-            link.appendChild(overlay);
-            postDiv.appendChild(link);
-            feedContainer.appendChild(postDiv);
-
-            loadedCount++;
-          } catch (error) {
-            console.warn('Failed to load Instagram post:', post.url, error);
-          }
-        }
-
-        // If no posts loaded, show fallback
-        if (loadedCount === 0) {
-          throw new Error('No posts loaded');
-        }
-
-      } catch (error) {
-        console.error('Instagram feed failed to load:', error);
-        feedContainer.style.display = 'none';
-        fallbackContainer.style.display = 'block';
-      }
-    }
-
-    // Load Instagram feed asynchronously when section is near viewport
-    function initInstagramFeed() {
-      const instagramSection = document.getElementById('instagram');
-
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              loadInstagramFeed();
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          rootMargin: '200px'
-        });
-
-        observer.observe(instagramSection);
-      } else {
-        // Fallback for browsers without IntersectionObserver
-        loadInstagramFeed();
-      }
-    }
-
-    // Initialize Instagram feed when DOM is ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initInstagramFeed);
-    } else {
-      initInstagramFeed();
-    }
 
     // Booking Form Validation and Secure Submission
     const form = document.getElementById('bookForm'), msg = document.getElementById('formMsg');
@@ -2067,6 +1923,64 @@
         isSubmitting = false;
       }
     });
+
+    // Instagram Feed with Local Images
+    // INSTRUCTIONS: 
+    // 1. Go to each Instagram post URL below
+    // 2. Right-click the image and "Save image as..."
+    // 3. Save to public/media/ folder as instagram-1.jpg, instagram-2.jpg, instagram-3.jpg
+    // 4. The images will show up and link to Instagram when clicked
+    const instagramPosts = [
+      {
+        url: 'https://www.instagram.com/p/DQFUhsUDciC/',
+        image: 'media/instagram-1.jpg',
+        alt: 'Reever band live performance'
+      },
+      {
+        url: 'https://www.instagram.com/p/DPwQyVTDGOf/',
+        image: 'media/instagram-2.jpg',
+        alt: 'Reever band photo'
+      },
+      {
+        url: 'https://www.instagram.com/p/DMc6NR9Nskw/',
+        image: 'media/instagram-3.jpg',
+        alt: 'Reever band on stage'
+      }
+    ];
+
+    function loadInstagramFeed() {
+      const feedContainer = document.getElementById('instagram-feed');
+      if (!feedContainer) return;
+
+      feedContainer.innerHTML = '';
+
+      instagramPosts.forEach((post) => {
+        const postDiv = document.createElement('div');
+        postDiv.className = 'instagram-post';
+
+        const link = document.createElement('a');
+        link.href = post.url;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.setAttribute('aria-label', `View this post on Instagram: ${post.alt}`);
+
+        const img = document.createElement('img');
+        img.src = post.image;
+        img.alt = post.alt;
+        img.loading = 'lazy';
+
+        link.appendChild(img);
+        postDiv.appendChild(link);
+        feedContainer.appendChild(postDiv);
+      });
+    }
+
+    // Load Instagram feed when page loads
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadInstagramFeed);
+    } else {
+      loadInstagramFeed();
+    }
   </script>
 </body>
 
