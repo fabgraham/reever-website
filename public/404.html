@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found – Reever Band</title>
+  <meta name="description"
+    content="The page you're looking for doesn't exist. Find what you need on the Reever band website.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Preconnect hints for external domains -->
+  <link rel="preconnect" href="https://open.spotify.com">
+  <link rel="preconnect" href="https://www.instagram.com">
+  <link rel="preconnect" href="https://identity.netlify.com">
+
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <style>
+    :root {
+      --accent: #f05a7e;
+      --accent-dark: #d94868;
+      --bg: #fff;
+      --bg-alt: #f6f7f8;
+      --bg-alt-dark: #e6e8ec;
+      --text: #1a1a1a;
+      --hero-text: #2e3440;
+      --shadow: 0 2px 12px rgba(240, 90, 126, 0.08);
+      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --radius: 0.6rem;
+      --divider: rgba(7, 36, 86, 0.28);
+      --footer-bg: #d7e5ff;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* Skip to content links for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 6px;
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 0 0 4px 4px;
+      font-weight: 600;
+      z-index: 1000;
+      transition: top 0.2s ease;
+      opacity: 0;
+    }
+
+    .skip-link:focus {
+      top: 0;
+      opacity: 1;
+      outline: 3px solid #fff;
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html {
+        scroll-behavior: smooth;
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 1.1rem;
+      line-height: 1.65;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 20;
+      background: var(--bg);
+      box-shadow: 0 1px 0 #eee;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.7rem 1.5rem;
+    }
+
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav li {
+      display: inline;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.2em 0.7em;
+      border-radius: 1em;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    nav a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    nav a.active:focus-visible {
+      outline-color: #fff;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      margin-left: 0.4em;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    .nav-toggle[aria-expanded="true"] span {
+      transform: rotate(90deg);
+    }
+
+    /* Enhanced focus indicators for all interactive elements */
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .cta-btn:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: 2px;
+    }
+
+    .nav-toggle:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0.7rem 0.7rem;
+      }
+
+      .nav-logo img {
+        height: 38px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        position: fixed;
+        top: 3.5rem;
+        left: 0;
+        width: 100vw;
+        background: var(--bg);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+      }
+
+      nav ul.open {
+        max-height: calc(100vh - 3.5rem);
+      }
+
+      nav ul li {
+        margin: 0.9em 0;
+      }
+
+      .nav-toggle {
+        display: inline;
+      }
+
+      nav {
+        flex: 1;
+      }
+    }
+
+    /* 404 Page Specific Styles - Match main website theme */
+    .error-container {
+      min-height: calc(100vh - 200px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem min(7vw, 4rem);
+      background: var(--bg);
+      position: relative;
+    }
+
+    .error-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .error-image {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: block;
+    }
+
+    .error-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--hero-text);
+      margin: 0 0 2rem;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    .home-link {
+      display: inline-block;
+      margin-top: 2rem;
+    }
+
+    .error-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .error-buttons {
+      display: flex;
+      gap: 1.15rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cta-btn {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      border: none;
+      font-size: 1.14rem;
+      padding: 0.85em 2em;
+      margin: 0.7em 0;
+      border-radius: 2em;
+      box-shadow: var(--shadow);
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.18s, filter 0.18s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta-btn:focus,
+    .cta-btn:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+      outline: none;
+      text-decoration: none;
+    }
+
+    .suggestions {
+      margin-top: 4rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    .suggestions h3 {
+      font-size: 1.8rem;
+      color: var(--hero-text);
+      margin-bottom: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-align: center;
+    }
+
+    .suggestions-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.6rem;
+      margin-top: 2rem;
+    }
+
+    .suggestion-item {
+      background: #fff;
+      padding: 1.6rem 1.2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .suggestion-item:hover,
+    .suggestion-item:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(240, 90, 126, 0.15);
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .suggestion-item h4 {
+      margin: 0;
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .suggestion-item p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #42536d;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background: #fff;
+      text-align: center;
+      padding: 2em 1em 1.4em 1em;
+      color: var(--hero-text);
+      font-size: 0.98em;
+      margin-top: auto;
+    }
+
+    .footer-social {
+      margin-top: 1.1em;
+    }
+
+    .footer-social a {
+      margin: 0 0.5em;
+      color: #E4405F;
+      font-size: 1.4em;
+      display: inline-flex;
+    }
+
+    .footer-social a svg {
+      width: 1.4em;
+      height: 1.4em;
+      fill: currentColor;
+    }
+
+    .footer-social a:focus,
+    .footer-social a:hover {
+      color: #FF6A88;
+      outline: none;
+    }
+
+    /* Add section styling like main website */
+    .suggestions {
+      padding: 4.5rem 2rem 4rem;
+      background: linear-gradient(120deg, var(--bg-alt) 0%, var(--bg-alt-dark) 100%);
+      position: relative;
+      margin-top: 0;
+      width: 100%;
+      border-radius: var(--radius);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .suggestions::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(94%, 1200px);
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--divider), transparent);
+    }
+
+    @media (max-width: 650px) {
+      .error-title {
+        font-size: 2rem;
+      }
+
+      .error-image {
+        max-width: 300px;
+      }
+
+      .suggestions-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .suggestions {
+        padding: 3rem 1.1rem 2.6rem;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .suggestions-list {
+        grid-template-columns: 1fr;
+      }
+
+      .error-image {
+        max-width: 280px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Skip to content links for keyboard navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#nav-menu" class="skip-link">Skip to navigation</a>
+
+  <header id="top">
+    <nav aria-label="Main navigation" class="navbar">
+      <a href="/" class="nav-logo" aria-label="Reever home">
+        <img src="media/reever-logo-white.jpg" alt="Reever logo" decoding="async" width="120" height="44">
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <span aria-hidden="true">☰</span> </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/#about" class="nav-link">About</a></li>
+        <li><a href="/#songs" class="nav-link">Songs</a></li>
+        <li><a href="/#media" class="nav-link">Gallery</a></li>
+        <li><a href="/#gigs" class="nav-link">Upcoming Gigs</a></li>
+        <li><a href="/#contact" class="nav-link">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" class="error-container">
+    <div class="error-content">
+      <img src="media/image-404.png" alt="404 Error Illustration" class="error-image" loading="lazy" decoding="async">
+
+      <h1 class="error-title">Oops, this page doesn't exist</h1>
+
+      <div class="home-link">
+        <a href="/" class="cta-btn">Back to Home</a>
+      </div>
+
+      <div class="error-actions">
+        <div class="suggestions">
+          <h3>What are you looking for?</h3>
+          <div class="suggestions-list">
+            <a href="/#about" class="suggestion-item">
+              <h4>About the Band</h4>
+              <p>Learn about Reever and our members</p>
+            </a>
+            <a href="/#songs" class="suggestion-item">
+              <h4>Our Setlist</h4>
+              <p>Check out all the songs we play</p>
+            </a>
+            <a href="/#media" class="suggestion-item">
+              <h4>Photos & Videos</h4>
+              <p>See us in action at live gigs</p>
+            </a>
+            <a href="/#gigs" class="suggestion-item">
+              <h4>Upcoming Gigs</h4>
+              <p>Find out where we're playing next</p>
+            </a>
+            <a href="/#contact" class="suggestion-item">
+              <h4>Book Us</h4>
+              <p>Get in touch for your event</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div>© 2025 Reever • All rights reserved.</div>
+    <div class="footer-social">
+      <a href="https://instagram.com/reever.band" aria-label="Follow Reever on Instagram" target="_blank"
+        rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm12 1.75a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        const newExpanded = !expanded;
+        navToggle.setAttribute('aria-expanded', newExpanded);
+        navToggle.setAttribute('aria-label', newExpanded ? 'Close navigation menu' : 'Open navigation menu');
+        navMenu.classList.toggle('open');
+
+        // Focus management for accessibility
+        if (newExpanded) {
+          // Focus first menu item when opening
+          const firstMenuItem = navMenu.querySelector('a');
+          if (firstMenuItem) {
+            setTimeout(() => firstMenuItem.focus(), 100);
+          }
+        }
+      });
+    }
+
+    // Enhanced keyboard navigation for menu items
+    const navLinks = [...document.querySelectorAll('.nav-link')];
+    navLinks.forEach((link, idx) => {
+      // Enhanced keyboard navigation for menu items
+      link.addEventListener('keydown', (e) => {
+        if (window.innerWidth < 769 && navMenu.classList.contains('open')) {
+          switch (e.key) {
+            case 'Escape':
+              e.preventDefault();
+              navMenu.classList.remove('open');
+              navToggle.setAttribute('aria-expanded', 'false');
+              navToggle.setAttribute('aria-label', 'Open navigation menu');
+              navToggle.focus();
+              break;
+            case 'ArrowDown':
+              e.preventDefault();
+              const nextLink = navLinks[idx + 1] || navLinks[0];
+              nextLink.focus();
+              break;
+            case 'ArrowUp':
+              e.preventDefault();
+              const prevLink = navLinks[idx - 1] || navLinks[navLinks.length - 1];
+              prevLink.focus();
+              break;
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

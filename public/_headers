@@ -1,0 +1,43 @@
+# Netlify Headers Configuration for Caching and Performance
+
+# Cache static assets for 1 year
+/media/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache CSS and JS for 1 year (with versioning)
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache fonts for 1 year
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache HTML for 1 hour (allow updates)
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Cache root index for 1 hour
+/
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Security headers
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# Favicon and manifest
+/favicon/*
+  Cache-Control: public, max-age=86400
+
+/site.webmanifest
+  Cache-Control: public, max-age=86400
+  Content-Type: application/manifest+json

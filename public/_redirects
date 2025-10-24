@@ -1,3 +1,18 @@
-# Static site redirects
-# Fallback to index.html for any unmatched routes
-/*    /index.html   200
+# Netlify redirects file for 404 handling
+
+# Handle 404 errors - redirect to custom 404 page
+/* /404.html 404
+
+# Optional: Redirect common misspellings or old paths
+/home / 301
+/index.html / 301
+/about /#about 301
+/songs /#songs 301
+/setlist /#songs 301
+/media /#media 301
+/gallery /#media 301
+/gigs /#gigs 301
+/shows /#gigs 301
+/contact /#contact 301
+/booking /#contact 301
+/book /#contact 301

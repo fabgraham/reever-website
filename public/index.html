@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reever – Pop-Rock Covers Band from Woking</title>
-  <meta name="description" content="Pop-rock covers band from Woking. Live pub gigs, parties, weddings, and corporate events. See dates, media, and book us!">
+  <meta name="description"
+    content="Pop-rock covers band from Woking. Live pub gigs, parties, weddings, and corporate events. See dates, media, and book us!">
   <meta property="og:title" content="Reever – Pop-Rock Covers Band from Woking">
-  <meta property="og:description" content="Pop-rock covers band from Woking. Live gigs and parties. See dates, media, and book us!">
+  <meta property="og:description"
+    content="Pop-rock covers band from Woking. Live gigs and parties. See dates, media, and book us!">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="media/reever-live-photo.jpg">
+  <meta property="og:image" content="https://reever.band/media/reever-live-photo.jpg">
+  <meta property="og:url" content="https://reever.band/">
+  <meta name="keywords" content="covers band, Woking, Surrey, wedding band, party band, live music, pop rock">
+  <meta name="author" content="Reever">
+  <link rel="canonical" href="https://reever.band/">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#f05a7e">
+
+  <!-- Preconnect hints for external domains -->
+  <link rel="preconnect" href="https://open.spotify.com">
+  <link rel="preconnect" href="https://www.instagram.com">
+  <link rel="preconnect" href="https://identity.netlify.com">
 
   <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -38,499 +57,1558 @@
       --bg-alt-dark: #e6e8ec;
       --text: #1a1a1a;
       --hero-text: #2e3440;
-      --shadow: 0 2px 12px rgba(240,90,126,0.08);
-      --font: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      --shadow: 0 2px 12px rgba(240, 90, 126, 0.08);
+      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --radius: 0.6rem;
-      --divider: rgba(7,36,86,0.28);
+      --divider: rgba(7, 36, 86, 0.28);
       --footer-bg: #d7e5ff;
     }
-    *,*::before,*::after{box-sizing:border-box;}
-    html {font-family: var(--font); background: var(--bg); color: var(--text);}
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* Skip to content links for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 6px;
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 0 0 4px 4px;
+      font-weight: 600;
+      z-index: 1000;
+      transition: top 0.2s ease;
+      opacity: 0;
+    }
+
+    .skip-link:focus {
+      top: 0;
+      opacity: 1;
+      outline: 3px solid #fff;
+      outline-offset: 2px;
+    }
+
     @media (prefers-reduced-motion: no-preference) {
-      html {scroll-behavior: smooth;}
+      html {
+        scroll-behavior: smooth;
+      }
     }
-    body {margin:0; padding:0; font-size: 1.1rem; line-height:1.65;}
-    header {position: sticky;top:0;width:100%;z-index:20;background: var(--bg);box-shadow:0 1px 0 #eee;}
-    .navbar {display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0.7rem 1.5rem;}
-    .nav-logo {display:inline-flex;align-items:center;gap:0.45rem;font-size:1.6rem;font-weight:700;letter-spacing:0.04em;text-decoration:none;}
-    .nav-logo img {height:44px;width:auto;display:block;}
-    nav ul {display:flex;gap:1rem;list-style:none;padding:0;margin:0;}
-    nav li{display:inline;}
-    nav a {color:var(--text);text-decoration:none;font-weight:500;padding:0.2em 0.7em;border-radius: 1em;transition: background 0.2s, color 0.2s;}
-    nav a.active {background:var(--accent);color:#fff;}
-    nav a:focus-visible {outline:3px solid var(--accent);outline-offset:3px;}
-    nav a.active:focus-visible {outline-color:#fff;}
-    .nav-toggle {display:none;background:none;border:none;font-size:1.8rem;margin-left:0.4em;cursor:pointer;color:var(--text);}
-    .nav-toggle[aria-expanded="true"] span {transform:rotate(90deg);}
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 1.1rem;
+      line-height: 1.65;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 20;
+      background: var(--bg);
+      box-shadow: 0 1px 0 #eee;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.7rem 1.5rem;
+    }
+
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav li {
+      display: inline;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.2em 0.7em;
+      border-radius: 1em;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    nav a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    nav a.active:focus-visible {
+      outline-color: #fff;
+    }
+
+    /* Enhanced focus indicators for all interactive elements */
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .cta-btn:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: 2px;
+    }
+
+    .nav-toggle:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* Accessibility improvements */
+    [aria-invalid="true"] {
+      border-color: #e52560 !important;
+    }
+
+    .carousel-control:focus-visible,
+    .dot:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .songlist-modal:focus {
+      outline: none;
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+
+      .skip-link,
+      .cta-btn,
+      nav a.active {
+        border: 2px solid;
+      }
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+
+      .carousel-track,
+      .skip-link {
+        transition: none;
+      }
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      margin-left: 0.4em;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    .nav-toggle[aria-expanded="true"] span {
+      transform: rotate(90deg);
+    }
+
     @media (max-width: 768px) {
-      .navbar {padding:0.7rem 0.7rem;}
-      .nav-logo img {height:38px;}
-      nav ul {flex-direction:column;position:fixed;top:3.5rem;left:0;width:100vw;background:var(--bg);max-height:0;overflow:hidden;transition:max-height 0.25s;box-shadow:0 2px 12px rgba(0,0,0,0.07);}
-      nav ul.open {max-height:calc(100vh - 3.5rem);}
-      nav ul li {margin: 0.9em 0;}
-      .nav-toggle {display:inline;}
-      nav {flex:1;}
+      .navbar {
+        padding: 0.7rem 0.7rem;
+      }
+
+      .nav-logo img {
+        height: 38px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        position: fixed;
+        top: 3.5rem;
+        left: 0;
+        width: 100vw;
+        background: var(--bg);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+      }
+
+      nav ul.open {
+        max-height: calc(100vh - 3.5rem);
+      }
+
+      nav ul li {
+        margin: 0.9em 0;
+      }
+
+      .nav-toggle {
+        display: inline;
+      }
+
+      nav {
+        flex: 1;
+      }
     }
-    main {width:100%;margin:0;box-sizing:border-box;}
-    section {padding:4.5rem min(7vw,4rem) 4rem;min-height:320px;position:relative;}
-    section:not(:first-of-type)::before {content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(94%,1200px);height:3px;background:linear-gradient(90deg,transparent,var(--divider),transparent);}
-    section:nth-of-type(even) {background:linear-gradient(120deg,var(--bg-alt) 0%,var(--bg-alt-dark) 100%);}
-    section h2 {text-align:center;font-size:2.4rem;margin:0 0 2.3rem;font-weight:800;letter-spacing:0.04em;}
-    section:target {scroll-margin-top: 4.2rem;}
+
+    main {
+      width: 100%;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    section {
+      padding: 4.5rem min(7vw, 4rem) 4rem;
+      min-height: 320px;
+      position: relative;
+    }
+
+    section:not(:first-of-type)::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(94%, 1200px);
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--divider), transparent);
+    }
+
+    section:nth-of-type(even) {
+      background: linear-gradient(120deg, var(--bg-alt) 0%, var(--bg-alt-dark) 100%);
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin: 0 0 2.3rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    section:target {
+      scroll-margin-top: 4.2rem;
+    }
+
     /* Hero */
-    .hero {min-height:min(88vh,530px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;background:linear-gradient(212deg,rgba(0,0,0,0.72),rgba(0,0,0,0.55)),url('media/reever-live-photo.jpg');background-size:cover;background-position:center;color:#fff;}
-    .hero::before {content:'';position:absolute;inset:0;background:rgba(0,0,0,0.45);backdrop-filter:blur(2px);z-index:1;}
-    .hero-content {position:relative;z-index:2;padding:2.5rem 1rem;}
-    .hero h1 {margin:0.6em 0 0.4em 0;color:#fff;}
-    .hero-title {display:flex;flex-direction:column;align-items:center;}
-    .hero-logo {width:min(60vw,340px);max-width:100%;height:auto;display:block;filter:drop-shadow(0 10px 24px rgba(0,0,0,0.55));}
-    .hero .tagline {font-size:1.28rem;color:#fff;margin-bottom:2rem;}
-    .hero-btns{display:flex;gap:1.15rem;justify-content:center;}
-    .cta-btn {background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:#fff;border:none;font-size:1.14rem;padding:0.85em 2em;margin:0.7em 0;border-radius:2em;box-shadow:var(--shadow);font-weight:500;cursor:pointer;transition:transform 0.18s,filter 0.18s;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;}
-    .cta-btn:focus, .cta-btn:hover {filter:brightness(1.05);transform:translateY(-1px);outline:none;text-decoration:none;}
+    .hero {
+      min-height: min(88vh, 530px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(212deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.55)), url('media/reever-live-photo.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(2px);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2.5rem 1rem;
+    }
+
+    .hero h1 {
+      margin: 0.6em 0 0.4em 0;
+      color: #fff;
+    }
+
+    .hero-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-logo {
+      width: min(60vw, 340px);
+      max-width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.55));
+    }
+
+    .hero .tagline {
+      font-size: 1.28rem;
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1.15rem;
+      justify-content: center;
+    }
+
+    .cta-btn {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      border: none;
+      font-size: 1.14rem;
+      padding: 0.85em 2em;
+      margin: 0.7em 0;
+      border-radius: 2em;
+      box-shadow: var(--shadow);
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.18s, filter 0.18s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta-btn:focus,
+    .cta-btn:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+      outline: none;
+      text-decoration: none;
+    }
+
     /* About */
-    #about h2{text-align:center;}
-    .about-layout{display:flex;flex-direction:column;gap:2.6rem;margin:2.2rem auto 0;max-width:1100px;}
-    .about-overview,.about-people{display:flex;flex-direction:column;gap:1.5rem;}
-    .about-people{align-self:stretch;}
-    .about-overview p{margin:0; text-align: justify;}
-    .about-highlights{margin:0;padding-left:1.2rem;list-style:disc;color:#344358;}
-    .about-highlights li{margin-bottom:0.55rem;}
-    .about-subheading{text-align:left;font-size:1.8rem;margin:0;font-weight:700;letter-spacing:0.03em;color:var(--hero-text);}
-    .about-members{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.6em; margin-top:0;}
-    .about-member{background:#fff;padding:1.6em 1.2em;border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:0.4em;align-items:flex-start;text-align:left;}
-    .about-member strong{font-size:1.2rem;letter-spacing:0.04em;}
-    .about-member span{color:#42536d;font-weight:600;}
-    @media (min-width:960px){
-      #about h2{text-align:center;}
-      .about-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:3.5rem;}
-      .about-overview{padding-right:1.5rem;}
-      .about-people{padding-left:1.5rem;}
+    #about h2 {
+      text-align: center;
     }
+
+    .about-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 2.6rem;
+      margin: 2.2rem auto 0;
+      max-width: 1100px;
+    }
+
+    .about-overview,
+    .about-people {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .about-people {
+      align-self: stretch;
+    }
+
+    .about-overview p {
+      margin: 0;
+      text-align: justify;
+    }
+
+    .about-highlights {
+      margin: 0;
+      padding-left: 1.2rem;
+      list-style: disc;
+      color: #344358;
+    }
+
+    .about-highlights li {
+      margin-bottom: 0.55rem;
+    }
+
+    .about-subheading {
+      text-align: left;
+      font-size: 1.8rem;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--hero-text);
+    }
+
+    .about-members {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.6em;
+      margin-top: 0;
+    }
+
+    .about-member {
+      background: #fff;
+      padding: 1.6em 1.2em;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4em;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .about-member strong {
+      font-size: 1.2rem;
+      letter-spacing: 0.04em;
+    }
+
+    .about-member span {
+      color: #42536d;
+      font-weight: 600;
+    }
+
+    @media (min-width:960px) {
+      #about h2 {
+        text-align: center;
+      }
+
+      .about-layout {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+        gap: 3.5rem;
+      }
+
+      .about-overview {
+        padding-right: 1.5rem;
+      }
+
+      .about-people {
+        padding-left: 1.5rem;
+      }
+    }
+
     /* Song List */
-    .songs-lede{max-width:600px;margin:0 auto 2.4rem;text-align:center;color:rgba(0,0,0,0.7);}
-    .songlist-cta{display:flex;justify-content:center;margin-bottom:2.2rem;}
-    .songlist-overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(5,20,40,0.72);backdrop-filter:blur(6px);padding:2rem;z-index:40;}
-    .songlist-overlay.open{display:flex;}
-    .songlist-modal{background:#ffffff;border-radius:1.1rem;max-width:900px;width:100%;padding:2.6rem min(6vw,3rem);box-shadow:0 40px 120px rgba(0,0,0,0.22);position:relative;max-height:85vh;overflow:auto;}
-    .songlist-modal h3{text-align:center;font-size:2rem;margin:0 0 0.8rem;}
-    .songlist-note{text-align:center;margin:0 auto 2.2rem;color:#4a5c78;max-width:540px;}
-    .songlist-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.6rem;}
-    .songlist-modal ul{list-style:none;margin:0;padding:0;}
-    .songlist-modal li{padding:0.45em 0;border-bottom:1px solid rgba(240,90,126,0.18);}
-    .modal-close{position:absolute;top:1rem;right:1rem;background:transparent;border:0;font-size:2rem;line-height:1;color:#0d2346;cursor:pointer;}
-    .songlist-actions{margin-top:2.4rem;display:flex;justify-content:center;}
-    .songlist-actions .cta-btn{min-width:210px;}
-    .spotify-embed{margin:3rem auto 0;text-align:center;}
-    .spotify-embed iframe{width:min(100%,640px);height:360px;border-radius:1.2rem;box-shadow:var(--shadow);}
-    body.no-scroll{overflow:hidden;}
+    .songs-lede {
+      max-width: 600px;
+      margin: 0 auto 2.4rem;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    .songlist-cta {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2.2rem;
+    }
+
+    .songlist-overlay {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(5, 20, 40, 0.72);
+      backdrop-filter: blur(6px);
+      padding: 2rem;
+      z-index: 40;
+    }
+
+    .songlist-overlay.open {
+      display: flex;
+    }
+
+    .songlist-modal {
+      background: #ffffff;
+      border-radius: 1.1rem;
+      max-width: 900px;
+      width: 100%;
+      padding: 2.6rem min(6vw, 3rem);
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.22);
+      position: relative;
+      max-height: 85vh;
+      overflow: auto;
+    }
+
+    .songlist-modal h3 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 0 0 0.8rem;
+    }
+
+    .songlist-note {
+      text-align: center;
+      margin: 0 auto 2.2rem;
+      color: #4a5c78;
+      max-width: 540px;
+    }
+
+    .songlist-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.6rem;
+    }
+
+    .songlist-modal ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .songlist-modal li {
+      padding: 0.45em 0;
+      border-bottom: 1px solid rgba(240, 90, 126, 0.18);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: 0;
+      font-size: 2rem;
+      line-height: 1;
+      color: #0d2346;
+      cursor: pointer;
+    }
+
+    .songlist-actions {
+      margin-top: 2.4rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .songlist-actions .cta-btn {
+      min-width: 210px;
+    }
+
+    .spotify-embed {
+      margin: 3rem auto 0;
+      text-align: center;
+    }
+
+    .spotify-embed iframe {
+      width: min(100%, 640px);
+      height: 360px;
+      border-radius: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    body.no-scroll {
+      overflow: hidden;
+    }
+
     /* Media */
-    .media-carousel{position:relative;max-width:500px;margin:0 auto 3rem;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;}
-    .carousel-window{overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow);position:relative;width:100%;}
-    .carousel-track{display:flex;transition:transform 0.5s ease;touch-action:pan-y;}
-    .carousel-slide{min-width:100%;position:relative;flex:0 0 100%;margin:0;}
-    .carousel-slide img{width:100%;height:100%;object-fit:contain;background:#000;display:block;}
-    .carousel-slide figcaption{position:absolute;bottom:0;left:0;width:100%;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(5,20,40,0.78) 65%);color:#fff;padding:1.2rem 1.4rem;font-weight:600;letter-spacing:0.04em;}
-    .carousel-control{background:rgba(5,20,40,0.7);color:#fff;border:none;width:48px;height:48px;border-radius:50%;font-size:2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:background 0.2s,transform 0.2s;}
-    .carousel-control:hover,.carousel-control:focus{background:var(--accent-dark);transform:scale(1.05);outline:none;}
-    .carousel-dots{grid-column:1 / -1;display:flex;justify-content:center;gap:0.6rem;margin-top:0.4rem;}
-    .carousel-dots .dot{width:14px;height:14px;border-radius:50%;border:0;background:rgba(5,20,40,0.3);cursor:pointer;transition:transform 0.2s,background 0.2s;}
-    .carousel-dots .dot.active{background:var(--accent);transform:scale(1.1);}
-    .carousel-dots .dot:focus{outline:2px solid var(--accent);outline-offset:2px;}
-    .yt-embed{aspect-ratio:16/9;max-width:720px;margin:0 auto;background:#000;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+    .media-carousel {
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto 3rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .carousel-window {
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: relative;
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      touch-action: pan-y;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      position: relative;
+      flex: 0 0 100%;
+      margin: 0;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+      display: block;
+    }
+
+    .carousel-slide figcaption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(5, 20, 40, 0.78) 65%);
+      color: #fff;
+      padding: 1.2rem 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .carousel-control {
+      background: rgba(5, 20, 40, 0.7);
+      color: #fff;
+      border: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .carousel-control:hover,
+    .carousel-control:focus {
+      background: var(--accent-dark);
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    .carousel-dots {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    .carousel-dots .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 0;
+      background: rgba(5, 20, 40, 0.3);
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .carousel-dots .dot.active {
+      background: var(--accent);
+      transform: scale(1.1);
+    }
+
+    .carousel-dots .dot:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .yt-embed {
+      aspect-ratio: 16/9;
+      max-width: 720px;
+      margin: 0 auto;
+      background: #000;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
     /* Gigs */
-    .gigs-list{display:flex;flex-direction:column;gap:1.6rem;margin-bottom:2.7rem;}
-    .gig-item{display:flex;gap:1.6rem;align-items:stretch;background:#fff;border-radius:calc(var(--radius) + 0.4rem);box-shadow:var(--shadow);padding:1.8rem;}
-    .gig-dateblock{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:120px;background:linear-gradient(180deg,#0a2a58 0%,#134a92 100%);color:#fff;border-radius:1.2rem;box-shadow:inset 0 -6px 0 rgba(255,255,255,0.16);padding:1.2rem 1rem;}
-    .gig-month{font-size:1rem;text-transform:uppercase;letter-spacing:0.18em;}
-    .gig-day{font-size:2.8rem;font-weight:800;line-height:1;margin-top:0.1rem;}
-    .gig-weekday{font-size:1rem;letter-spacing:0.12em;margin-top:0.4rem;opacity:0.8;}
-    .gig-info{flex:1;display:flex;flex-direction:column;gap:0.35rem;}
-    .gig-title{font-size:1.5rem;margin:0;}
-    .gig-venue{margin:0;color:#2e3f58;font-weight:600;}
-    .gig-meta{margin:0;color:#62799d;font-size:0.98rem;letter-spacing:0.08em;text-transform:uppercase;}
-    .gig-meta.gig-private{text-transform:none;color:#c93680;font-weight:600;}
-    .gig-actions{margin-top:auto;display:flex;gap:0.9rem;flex-wrap:wrap;}
-    .gig-addcal{font-size:0.96rem;background:var(--accent);color:#fff;padding:0.45em 1.4em;border:none;border-radius:999px;text-decoration:none;cursor:pointer;}
-    .gig-addcal:focus,.gig-addcal:hover{background:#046ad2;outline:none;}
+    .gigs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      margin-bottom: 2.7rem;
+    }
+
+    .gig-item {
+      display: flex;
+      gap: 1.6rem;
+      align-items: stretch;
+      background: #fff;
+      border-radius: calc(var(--radius) + 0.4rem);
+      box-shadow: var(--shadow);
+      padding: 1.8rem;
+    }
+
+    .gig-dateblock {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
+      background: linear-gradient(180deg, #0a2a58 0%, #134a92 100%);
+      color: #fff;
+      border-radius: 1.2rem;
+      box-shadow: inset 0 -6px 0 rgba(255, 255, 255, 0.16);
+      padding: 1.2rem 1rem;
+    }
+
+    .gig-month {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .gig-day {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-top: 0.1rem;
+    }
+
+    .gig-weekday {
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      margin-top: 0.4rem;
+      opacity: 0.8;
+    }
+
+    .gig-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .gig-title {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .gig-venue {
+      margin: 0;
+      color: #2e3f58;
+      font-weight: 600;
+    }
+
+    .gig-meta {
+      margin: 0;
+      color: #62799d;
+      font-size: 0.98rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .gig-meta.gig-private {
+      text-transform: none;
+      color: #c93680;
+      font-weight: 600;
+    }
+
+    .gig-actions {
+      margin-top: auto;
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .gig-addcal {
+      font-size: 0.96rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.45em 1.4em;
+      border: none;
+      border-radius: 999px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .gig-addcal:focus,
+    .gig-addcal:hover {
+      background: #046ad2;
+      outline: none;
+    }
+
+    /* Instagram Feed */
+    .instagram-intro {
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    .instagram-feed {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .instagram-post {
+      position: relative;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .instagram-post:hover,
+    .instagram-post:focus-within {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(240, 90, 126, 0.15);
+    }
+
+    .instagram-post a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .instagram-post img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .instagram-post-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+      color: #fff;
+    }
+
+    .instagram-post:hover .instagram-post-overlay {
+      opacity: 1;
+    }
+
+    .instagram-post-caption {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .instagram-loading {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #4a5c78;
+      grid-column: 1/-1;
+    }
+
+    .instagram-loading .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 4px solid var(--bg-alt);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .instagram-fallback {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      max-width: 500px;
+      margin: 0 auto;
+      grid-column: 1/-1;
+    }
+
+    .instagram-fallback p {
+      margin: 0 0 1.5rem;
+      font-size: 1.1rem;
+      color: #4a5c78;
+    }
+
+    .instagram-fallback .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    @media (max-width:900px) {
+      .instagram-feed {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width:600px) {
+      .instagram-feed {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
     /* Contact Us */
-    .contact-form{max-width:470px;margin:2em auto 1em;display:grid;gap:1.1em;padding:0 0.5rem;}
-    .form-row{display:flex;flex-direction:column;gap:0.33em;}
-    .form-note{font-size:0.93em;color:#4a5c78;text-align:center;margin:1.5em auto 0;}
-    .form-msg{padding:0.6em 1em;border-radius:0.9em;margin:1.2em auto 0;font-weight:500;max-width:21em;text-align:center;}
-    .msg-success{background:#e0fcf2;color:#007864;}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
-    label {font-weight:700;letter-spacing:0.02em;font-size:1.02em;}
-    .required {color:#e52560; margin-left: 0.17em;}
-    input, textarea, select {padding:0.7em 1em;border-radius:0.45em;border:1.5px solid #cfd3da;background:#fbfbfc;font-size:1em;transition:border-color 0.13s;width:100%;font-family: inherit;}
-    input:focus, textarea:focus, select:focus{border-color: var(--accent);outline: none;}
-    fieldset {border:0; padding:0; margin:0;}
+    .contact-form {
+      max-width: 470px;
+      margin: 2em auto 1em;
+      display: grid;
+      gap: 1.1em;
+      padding: 0 0.5rem;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.33em;
+    }
+
+    .form-note {
+      font-size: 0.93em;
+      color: #4a5c78;
+      text-align: center;
+      margin: 1.5em auto 0;
+    }
+
+    .form-msg {
+      padding: 0.6em 1em;
+      border-radius: 0.9em;
+      margin: 1.2em auto 0;
+      font-weight: 500;
+      max-width: 21em;
+      text-align: center;
+    }
+
+    .msg-success {
+      background: #e0fcf2;
+      color: #007864;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    label {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-size: 1.02em;
+    }
+
+    .required {
+      color: #e52560;
+      margin-left: 0.17em;
+    }
+
+    input,
+    textarea,
+    select {
+      padding: 0.7em 1em;
+      border-radius: 0.45em;
+      border: 1.5px solid #cfd3da;
+      background: #fbfbfc;
+      font-size: 1em;
+      transition: border-color 0.13s;
+      width: 100%;
+      font-family: inherit;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    fieldset {
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+
     @media (max-width:650px) {
-      .hero-logo{width:min(70vw,300px);}
-      .hero-content{padding:1.2rem 0.1rem;}
-      .about-members{grid-template-columns:1fr 1fr;}
-      .media-carousel{grid-template-columns:auto 1fr auto;max-width:100%;gap:0.6rem;padding:0 0.5rem;}
-      .media-carousel .carousel-control{width:42px;height:42px;font-size:1.6rem;}
-      .gig-item{flex-direction:column;align-items:center;text-align:center;padding:1.4rem;}
-      .gig-dateblock{flex-direction:row;gap:1.2rem;min-width:auto;width:100%;justify-content:center;}
-      .gig-month{font-size:0.9rem;}
-      .gig-day{font-size:2.4rem;}
-      .gig-weekday{font-size:0.9rem;}
-      .gig-actions{justify-content:center;}
-      section{padding:3rem 1.1rem 2.6rem;}
+      .hero-logo {
+        width: min(70vw, 300px);
+      }
+
+      .hero-content {
+        padding: 1.2rem 0.1rem;
+      }
+
+      .about-members {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .media-carousel {
+        grid-template-columns: auto 1fr auto;
+        max-width: 100%;
+        gap: 0.6rem;
+        padding: 0 0.5rem;
+      }
+
+      .media-carousel .carousel-control {
+        width: 42px;
+        height: 42px;
+        font-size: 1.6rem;
+      }
+
+      .gig-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.4rem;
+      }
+
+      .gig-dateblock {
+        flex-direction: row;
+        gap: 1.2rem;
+        min-width: auto;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .gig-month {
+        font-size: 0.9rem;
+      }
+
+      .gig-day {
+        font-size: 2.4rem;
+      }
+
+      .gig-weekday {
+        font-size: 0.9rem;
+      }
+
+      .gig-actions {
+        justify-content: center;
+      }
+
+      section {
+        padding: 3rem 1.1rem 2.6rem;
+      }
     }
+
     @media (max-width:430px) {
-      .about-members{grid-template-columns:1fr;}
-      .hero-logo{width:min(80vw,240px);}
+      .about-members {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-logo {
+        width: min(80vw, 240px);
+      }
     }
+
     @media (max-width: 650px) {
       .contact-form {
         max-width: 99vw;
         padding: 0 0.4rem;
         gap: 0.8em;
       }
+
       .form-row {
         gap: 0.18em;
       }
+
       .contact-form button.cta-btn {
         width: 100%;
         font-size: 1.08rem;
         padding: 0.75em 0;
       }
+
       .form-msg {
-        font-size:0.97em;
-        word-break:break-word;
+        font-size: 0.97em;
+        word-break: break-word;
       }
     }
+
     @media (max-width:430px) {
       .contact-form {
-        padding:0 0.08rem;
-        gap:0.66em;
+        padding: 0 0.08rem;
+        gap: 0.66em;
       }
-      .contact-form input, .contact-form textarea, .contact-form select {
-        font-size:0.96em;
-        padding:0.62em 0.7em;
+
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form select {
+        font-size: 0.96em;
+        padding: 0.62em 0.7em;
       }
+
       .contact-form button.cta-btn {
-        font-size:1.01rem;
-        padding:0.7em 0;
+        font-size: 1.01rem;
+        padding: 0.7em 0;
       }
     }
+
     /* Footer */
-    footer{background:#fff;text-align:center;padding:2em 1em 1.4em 1em;color:var(--hero-text);font-size:0.98em;}
-    .footer-social {margin-top:1.1em;}
-    .footer-social a {margin: 0 0.5em; color: #E4405F; font-size: 1.4em; display:inline-flex;}
-    .footer-social a svg{width:1.4em;height:1.4em;fill:currentColor;}
-    .footer-social a:focus,.footer-social a:hover {color: #FF6A88;outline:none;}
+    footer {
+      background: linear-gradient(120deg, var(--bg-alt) 0%, var(--bg-alt-dark) 100%);
+      text-align: center;
+      padding: 2em 1em 1.4em 1em;
+      color: var(--hero-text);
+      font-size: 0.98em;
+    }
+
+    .footer-social {
+      margin-top: 1.1em;
+    }
+
+    .footer-social a {
+      margin: 0 0.5em;
+      color: #E4405F;
+      font-size: 1.4em;
+      display: inline-flex;
+    }
+
+    .footer-social a svg {
+      width: 1.4em;
+      height: 1.4em;
+      fill: currentColor;
+    }
+
+    .footer-social a:focus,
+    .footer-social a:hover {
+      color: #FF6A88;
+      outline: none;
+    }
   </style>
 </head>
+
 <body>
-<header id="top">
-  <nav aria-label="Main navigation" class="navbar">
-    <a href="#home" class="nav-logo" aria-label="Reever home">
-      <img src="media/reever-logo-white.jpg" alt="Reever logo" decoding="async">
-    </a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu"> <span aria-hidden="true">☰</span> </button>
-    <ul id="nav-menu" class="nav-menu">
-      <li><a href="#home" class="nav-link active">Home</a></li>
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#songs" class="nav-link">Songs</a></li>
-      <li><a href="#media" class="nav-link">Gallery</a></li>
-      <li><a href="#gigs" class="nav-link">Upcoming Gigs</a></li>
-      <li><a href="#contact" class="nav-link">Contact Us</a></li>
-    </ul>
-  </nav>
-</header>
-<main>
-  <!-- Home / Hero section -->
-  <section class="hero" id="home" tabindex="-1" aria-label="Home. Hero image or video.">
-    <div class="hero-content">
-      <h1 class="hero-title">
-        <span class="sr-only">Reever</span>
-        <img src="media/reever-logo-black.jpeg" alt="Reever band logo" class="hero-logo" decoding="async">
-      </h1>
-      <p class="tagline">Pop-Rock Covers Band</p>
-      <div class="hero-btns">
-        <a href="#contact" class="cta-btn">Book Us</a>
-        <a href="#gigs" class="cta-btn">Next Gigs</a>
+  <!-- Skip to content links for keyboard navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#nav-menu" class="skip-link">Skip to navigation</a>
+
+  <header id="top">
+    <nav aria-label="Main navigation" class="navbar">
+      <a href="#home" class="nav-logo" aria-label="Reever home">
+        <img src="media/reever-logo-white.jpg" alt="Reever logo" decoding="async" width="120" height="44">
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <span aria-hidden="true">☰</span> </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#songs" class="nav-link">Songs</a></li>
+        <li><a href="#media" class="nav-link">Gallery</a></li>
+        <li><a href="#gigs" class="nav-link">Upcoming Gigs</a></li>
+        <li><a href="#contact" class="nav-link">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main-content">
+    <!-- Home / Hero section -->
+    <section class="hero" id="home" tabindex="-1" aria-label="Home. Hero image or video.">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="sr-only">Reever</span>
+          <img src="media/reever-logo-black.jpeg" alt="Reever band logo" class="hero-logo" decoding="async" width="340"
+            height="120">
+        </h1>
+        <p class="tagline">Pop-Rock Covers Band</p>
+        <div class="hero-btns">
+          <a href="#contact" class="cta-btn">Book Us</a>
+          <a href="#gigs" class="cta-btn">Next Gigs</a>
+        </div>
       </div>
-    </div>
-    <!--
+      <!--
       TODO: Swap media/reever-live-photo.jpg with your own image or video
       <img src="media/reever-live-photo.jpg" alt="Reever band performing live" style="display:none;"/>
       or
       <video autoplay muted loop poster="media/reever-live-photo.jpg"><source src="your-band-clip.mp4" type="video/mp4"></video>
     -->
-  </section>
+    </section>
 
-  <!-- About Section -->
-  <section id="about" aria-label="About" tabindex="-1">
-    <h2>About Reever</h2>
-    <div class="about-layout">
-      <div class="about-overview">
-        <p>
-            Hello! We're a four-piece pop/rock cover band formed in 2024 in Woking, Surrey. We deliver a mix of pub hits from 
-            the '80s, '90s, '00s, and beyond. We’re experienced musicians who get a crowd moving with 
-            a blend of songs that everyone knows and loves. <br/>Based in Woking, we're set to bring our contagious 
-            energy to pubs, private events and festivals across Surrey and the surrounding areas. 
-            If you’re looking for a band that will have you singing, dancing, and rocking out, 
+    <!-- About Section -->
+    <section id="about" aria-label="About" tabindex="-1">
+      <h2>About Reever</h2>
+      <div class="about-layout">
+        <div class="about-overview">
+          <p>
+            Hello! We're a four-piece pop/rock cover band formed in 2024 in Woking, Surrey. We deliver a mix of pub hits
+            from
+            the '80s, '90s, '00s, and beyond. We’re experienced musicians who get a crowd moving with
+            a blend of songs that everyone knows and loves. <br />Based in Woking, we're set to bring our contagious
+            energy to pubs, private events and festivals across Surrey and the surrounding areas.
+            If you’re looking for a band that will have you singing, dancing, and rocking out,
             Reever is your go-to band for a night filled with the best pop/rock vibes!
-        </p>
-        <ul class="about-highlights">
-          <li>We're ready for weddings, birthdays, pubs, &amp; corporate events</li>
-          <li>We've got all the equipment needed, including PA and lighting</li>
-        </ul>
-      </div>
-      <div class="about-people">
-        <h3 class="about-subheading">The Band</h3>
-        <div class="about-members">
-          <div class="about-member">
-            <strong>Fabricio</strong>
-            <span>Lead Vocals / Guitar</span>
-          </div>
-          <div class="about-member">
-            <strong>Alex</strong>
-            <span>Bass</span>
-          </div>
-          <div class="about-member">
-            <strong>Carlos R.</strong>
-            <span>Lead Guitar</span>
-          </div>
-          <div class="about-member">
-            <strong>Carlos M.</strong>
-            <span>Drums</span>
+          </p>
+          <ul class="about-highlights">
+            <li>We're ready for weddings, birthdays, pubs, &amp; corporate events</li>
+            <li>We've got all the equipment needed, including PA and lighting</li>
+          </ul>
+        </div>
+        <div class="about-people">
+          <h3 class="about-subheading">The Band</h3>
+          <div class="about-members">
+            <div class="about-member">
+              <strong>Fabricio</strong>
+              <span>Lead Vocals / Guitar</span>
+            </div>
+            <div class="about-member">
+              <strong>Alex</strong>
+              <span>Bass</span>
+            </div>
+            <div class="about-member">
+              <strong>Carlos R.</strong>
+              <span>Lead Guitar</span>
+            </div>
+            <div class="about-member">
+              <strong>Carlos M.</strong>
+              <span>Drums</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Song List Section -->
-  <section id="songs" aria-label="Song List" tabindex="-1">
-    <h2>Our Setlist</h2>
-    <p class="songs-lede">Click the below button to check our full setlist.</p>
-    <div class="songlist-cta">
-      <button type="button" class="cta-btn songlist-open" aria-expanded="false">Setlist</button>
-    </div>
-    <div class="songlist-overlay" aria-hidden="true">
-      <div class="songlist-modal" role="dialog" aria-modal="true" aria-labelledby="songlist-title">
-        <button type="button" class="modal-close" aria-label="Close song list">&times;</button>
-        <h3 id="songlist-title">Setlist</h3>
-        <p class="songlist-note">We can tailor the setlist to your event.</p>
-        <div class="songlist-columns">
-          <ul>
-            <li>Alive – Pearl Jam</li>
-            <li>All That I Have – Snow Patrol</li>
-            <li>All The Small Things – Blink 182</li>
-            <li>American Idiot – Green Day</li>
-            <li>Beds Are Burning – Midnight Oil</li>
-            <li>Boys Don’t Cry – The Cure</li>
-            <li>Chelsea Dagger – The Fratellis</li>
-            <li>Closing Time – Semisonic</li>
-            <li>Creep – Radiohead</li>
-            <li>Dakota – Stereophonics</li>
-            <li>Dani California – Red Hot Chili Peppers</li>
-            <li>Don’t Look Back In Anger – Oasis</li>
-            <li>Don’t You (Forget About Me) – Simple Minds</li>
-            <li>Every You Every Me – Placebo</li>
-            <li>Everlong – Foo Fighters</li>
-            <li>Getting Started – Sam Fender</li>
-            <li>Hate To Say I Told You So – The Hives</li>
-            <li>Here I Go Again - Whitesnake</li>
-            <li>Holiday – Green Day</li>
-            <li>I Bet You Look Good On The Dancefloor – The Arctic Monkeys</li>
-          </ul>
-          <ul>
-            <li>I Predict a Riot – Kaiser Chiefs</li>
-            <li>Just Like Heaven – The Cure</li>
-            <li>Learn to Fly – Foo Fighters</li>
-            <li>Lonely Boy – The Black Keys</li>
-            <li>Molly’s Chambers – Kings of Leon</li>
-            <li>Mr. Brightside – The Killers</li>
-            <li>Psycho Killer – Talking Heads</li>
-            <li>Rebel Yell – Billy Idol</li>
-            <li>Rock n Roll Star – Oasis</li>
-            <li>Sex On Fire – Kings of Leon</li>
-            <li>Shotgun – George Ezra</li>
-            <li>Song 2 – Blur</li>
-            <li>Summer of 69 – Bryan Adams</li>
-            <li>Take Me Out – Franz Ferdinand</li>
-            <li>The One I Love - REM</li>
-            <li>Vertigo – U2</li>
-            <li>When The Sun Goes Down – Arctic Monkeys</li>
-            <li>With or Without You – U2</li>
-            <li>You’re All I Have – Snow Patrol</li>
-          </ul>
-        </div>
-        <div class="songlist-actions">
-          <button type="button" class="cta-btn songlist-download">Download Setlist</button>
+    <!-- Song List Section -->
+    <section id="songs" aria-label="Song List" tabindex="-1">
+      <h2>Our Setlist</h2>
+      <p class="songs-lede" id="songs-lede">Click the below button to check our full setlist.</p>
+      <div class="songlist-cta">
+        <button type="button" class="cta-btn songlist-open" aria-expanded="false" aria-controls="songlist-modal"
+          aria-describedby="songs-lede">View Complete Setlist</button>
+      </div>
+      <div class="songlist-overlay" aria-hidden="true" id="songlist-modal">
+        <div class="songlist-modal" role="dialog" aria-modal="true" aria-labelledby="songlist-title"
+          aria-describedby="songlist-description" tabindex="-1">
+          <button type="button" class="modal-close" aria-label="Close setlist dialog">&times;</button>
+          <h3 id="songlist-title">Setlist</h3>
+          <p class="songlist-note" id="songlist-description">We can tailor the setlist to your event.</p>
+          <div class="songlist-columns">
+            <ul>
+              <li>Alive – Pearl Jam</li>
+              <li>All That I Have – Snow Patrol</li>
+              <li>All The Small Things – Blink 182</li>
+              <li>American Idiot – Green Day</li>
+              <li>Beds Are Burning – Midnight Oil</li>
+              <li>Boys Don’t Cry – The Cure</li>
+              <li>Chelsea Dagger – The Fratellis</li>
+              <li>Closing Time – Semisonic</li>
+              <li>Creep – Radiohead</li>
+              <li>Dakota – Stereophonics</li>
+              <li>Dani California – Red Hot Chili Peppers</li>
+              <li>Don’t Look Back In Anger – Oasis</li>
+              <li>Don’t You (Forget About Me) – Simple Minds</li>
+              <li>Every You Every Me – Placebo</li>
+              <li>Everlong – Foo Fighters</li>
+              <li>Getting Started – Sam Fender</li>
+              <li>Hate To Say I Told You So – The Hives</li>
+              <li>Here I Go Again - Whitesnake</li>
+              <li>Holiday – Green Day</li>
+              <li>I Bet You Look Good On The Dancefloor – The Arctic Monkeys</li>
+            </ul>
+            <ul>
+              <li>I Predict a Riot – Kaiser Chiefs</li>
+              <li>Just Like Heaven – The Cure</li>
+              <li>Learn to Fly – Foo Fighters</li>
+              <li>Lonely Boy – The Black Keys</li>
+              <li>Molly’s Chambers – Kings of Leon</li>
+              <li>Mr. Brightside – The Killers</li>
+              <li>Psycho Killer – Talking Heads</li>
+              <li>Rebel Yell – Billy Idol</li>
+              <li>Rock n Roll Star – Oasis</li>
+              <li>Sex On Fire – Kings of Leon</li>
+              <li>Shotgun – George Ezra</li>
+              <li>Song 2 – Blur</li>
+              <li>Summer of 69 – Bryan Adams</li>
+              <li>Take Me Out – Franz Ferdinand</li>
+              <li>The One I Love - REM</li>
+              <li>Vertigo – U2</li>
+              <li>When The Sun Goes Down – Arctic Monkeys</li>
+              <li>With or Without You – U2</li>
+              <li>You’re All I Have – Snow Patrol</li>
+            </ul>
+          </div>
+          <div class="songlist-actions">
+            <button type="button" class="cta-btn songlist-download">Download Setlist</button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="spotify-embed">
-      <!-- Replace the src below with your own Spotify playlist -->
-      <!--<iframe src="https://open.spotify.com/playlist/5RMdKqzOaEiMm3X6h5aSTw?si=hGHojuhoTIiyx7-tNWHtUQ" frameborder="0" allow="encrypted-media" title="Band's Spotify Playlist"></iframe> -->
-      <iframe data-testid="embed-iframe" style="border-radius:12px" 
-      src="https://open.spotify.com/embed/playlist/5RMdKqzOaEiMm3X6h5aSTw?utm_source=generator&theme=0" 
-      width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; 
+      <div class="spotify-embed">
+        <!-- Replace the src below with your own Spotify playlist -->
+        <!--<iframe src="https://open.spotify.com/playlist/5RMdKqzOaEiMm3X6h5aSTw?si=hGHojuhoTIiyx7-tNWHtUQ" frameborder="0" allow="encrypted-media" title="Band's Spotify Playlist"></iframe> -->
+        <iframe data-testid="embed-iframe" style="border-radius:12px"
+          src="https://open.spotify.com/embed/playlist/5RMdKqzOaEiMm3X6h5aSTw?utm_source=generator&theme=0" width="100%"
+          height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; 
       encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <!-- Media Section -->
-  <section id="media" aria-label="Media gallery and video" tabindex="-1">
-    <h2>See Us in Action</h2>
-    <div class="media-carousel" role="region" aria-label="Band photo carousel">
-      <button type="button" class="carousel-control prev" aria-label="Previous photo">‹</button>
-      <div class="carousel-window">
-        <div class="carousel-track">
-          <figure class="carousel-slide">
-            <img src="media/reever-live-photo.jpg" alt="Reever playing live at the Red Lion pub" loading="lazy" decoding="async"/>
-            <!--<figcaption>The Crown and Anchor</figcaption> -->
-          </figure>
-          <figure class="carousel-slide">
-            <img src="media/reever-band-photo.jpg" alt="Reever band photo" loading="lazy" decoding="async"/>
-            <!-- <figcaption>Live Performance</figcaption> -->
-          </figure>
-          <figure class="carousel-slide">
-            <img src="media/reever-band-performance-1.jpg" alt="Reever band performance photo 1" loading="lazy" decoding="async"/>
-            <!-- <figcaption>On Stage</figcaption> -->
-          </figure>
-          <figure class="carousel-slide">
-            <img src="media/reever-band-performance-2.jpg" alt="Reever band performance photo 2" loading="lazy" decoding="async"/>
-            <!-- <figcaption>Live Show</figcaption> -->
-          </figure>
-          <figure class="carousel-slide">
-            <img src="media/reever-band-performance-3.jpg" alt="Reever band performance photo 3" loading="lazy" decoding="async"/>
-            <!-- <figcaption>Concert Night</figcaption> -->
-          </figure>
-          <figure class="carousel-slide">
-            <img src="media/reever-band-performance-4.jpg" alt="Reever band performance photo 4" loading="lazy" decoding="async"/>
-            <!-- <figcaption>Band in Action</figcaption> -->
-          </figure>
+    <!-- Media Section -->
+    <section id="media" aria-label="Media gallery and video" tabindex="-1">
+      <h2>See Us in Action</h2>
+      <div class="media-carousel" role="region" aria-label="Band photo carousel" aria-live="polite">
+        <button type="button" class="carousel-control prev" aria-label="View previous photo in carousel">‹</button>
+        <div class="carousel-window">
+          <div class="carousel-track" role="group" aria-label="Carousel images">
+            <figure class="carousel-slide" role="group" aria-label="Photo 1 of 6">
+              <img src="media/reever-live-photo.jpg" alt="Reever playing live at the Red Lion pub" loading="lazy"
+                decoding="async" width="800" height="600" />
+              <!--<figcaption>The Crown and Anchor</figcaption> -->
+            </figure>
+            <figure class="carousel-slide" role="group" aria-label="Photo 2 of 6">
+              <img src="media/reever-band-photo.jpg" alt="Reever band photo" loading="lazy" decoding="async" width="800"
+                height="600" />
+              <!-- <figcaption>Live Performance</figcaption> -->
+            </figure>
+            <figure class="carousel-slide" role="group" aria-label="Photo 3 of 6">
+              <img src="media/reever-band-performance-1.jpg" alt="Reever band performance photo 1" loading="lazy"
+                decoding="async" width="800" height="600" />
+              <!-- <figcaption>On Stage</figcaption> -->
+            </figure>
+            <figure class="carousel-slide" role="group" aria-label="Photo 4 of 6">
+              <img src="media/reever-band-performance-2.jpg" alt="Reever band performance photo 2" loading="lazy"
+                decoding="async" width="800" height="600" />
+              <!-- <figcaption>Live Show</figcaption> -->
+            </figure>
+            <figure class="carousel-slide" role="group" aria-label="Photo 5 of 6">
+              <img src="media/reever-band-performance-3.jpg" alt="Reever band performance photo 3" loading="lazy"
+                decoding="async" width="800" height="600" />
+              <!-- <figcaption>Concert Night</figcaption> -->
+            </figure>
+            <figure class="carousel-slide" role="group" aria-label="Photo 6 of 6">
+              <img src="media/reever-band-performance-4.jpg" alt="Reever band performance photo 4" loading="lazy"
+                decoding="async" width="800" height="600" />
+              <!-- <figcaption>Band in Action</figcaption> -->
+            </figure>
+          </div>
+        </div>
+        <button type="button" class="carousel-control next" aria-label="View next photo in carousel">›</button>
+        <div class="carousel-dots" role="tablist" aria-label="Choose photo to view">
+          <button type="button" class="dot active" aria-label="View photo 1: Reever playing live" aria-selected="true"
+            role="tab"></button>
+          <button type="button" class="dot" aria-label="View photo 2: Band photo" role="tab"></button>
+          <button type="button" class="dot" aria-label="View photo 3: Performance photo 1" role="tab"></button>
+          <button type="button" class="dot" aria-label="View photo 4: Performance photo 2" role="tab"></button>
+          <button type="button" class="dot" aria-label="View photo 5: Performance photo 3" role="tab"></button>
+          <button type="button" class="dot" aria-label="View photo 6: Performance photo 4" role="tab"></button>
         </div>
       </div>
-      <button type="button" class="carousel-control next" aria-label="Next photo">›</button>
-      <div class="carousel-dots" role="tablist" aria-label="Select photo">
-        <button type="button" class="dot active" aria-label="Show slide 1" aria-selected="true"></button>
-        <button type="button" class="dot" aria-label="Show slide 2"></button>
-        <button type="button" class="dot" aria-label="Show slide 3"></button>
-        <button type="button" class="dot" aria-label="Show slide 4"></button>
-        <button type="button" class="dot" aria-label="Show slide 5"></button>
-        <button type="button" class="dot" aria-label="Show slide 6"></button>
-      </div>
-    </div>
-    <!-- <div class="yt-embed">
+      <!-- <div class="yt-embed">
       Swap with your promo YouTube video
       <iframe width="100%" height="100%" src="https://www.youtube.com/embed/eht-K2WcvQE" title="Band YouTube Video" frameborder="0" allowfullscreen></iframe>
     </div> -->
-  </section>
+    </section>
 
-  <!-- Gigs Section -->
-  <section id="gigs" aria-label="Upcoming gigs, book us" tabindex="-1">
-    <h2>Upcoming Gigs</h2>
-    <div class="gigs-list">
-      <article class="gig-item">
-        <time datetime="2025-11-29T20:00" class="gig-dateblock">
-          <span class="gig-month">Nov</span>
-          <span class="gig-day">29</span>
-          <span class="gig-weekday">Sat</span>
-        </time>
-        <div class="gig-info">
-          <h3 class="gig-title">The Royal Oak</h3>
-          <p class="gig-venue">Knaphill</p>
-          <p class="gig-meta">FROM 20:00</p>
-          <div class="gig-actions">
-            <a href="#" class="gig-addcal" data-title="Live at The Royal Oak" data-date="2025-11-29T20:00" data-venue="The Royal Oak" data-town="Woking">Add to Calendar</a>
+    <!-- Gigs Section -->
+    <section id="gigs" aria-label="Upcoming gigs, book us" tabindex="-1">
+      <h2>Upcoming Gigs</h2>
+      <div class="gigs-list">
+        <article class="gig-item" aria-labelledby="gig-title-1" aria-describedby="gig-details-1">
+          <time datetime="2025-11-29T20:00" class="gig-dateblock" aria-label="November 29th, 2025, Saturday">
+            <span class="gig-month" aria-hidden="true">Nov</span>
+            <span class="gig-day" aria-hidden="true">29</span>
+            <span class="gig-weekday" aria-hidden="true">Sat</span>
+          </time>
+          <div class="gig-info">
+            <h3 class="gig-title" id="gig-title-1">The Royal Oak</h3>
+            <p class="gig-venue">Knaphill</p>
+            <p class="gig-meta" id="gig-details-1">FROM 20:00</p>
+            <div class="gig-actions">
+              <a href="#" class="gig-addcal" data-title="Live at The Royal Oak" data-date="2025-11-29T20:00"
+                data-venue="The Royal Oak" data-town="Woking"
+                aria-label="Add Reever gig at The Royal Oak on November 29th to your calendar">Add to Calendar</a>
+            </div>
           </div>
-        </div>
-      </article>
-    </div>
-    <div class="form-note">Interested in a booking? Please <a href="#contact">get in touch!</a></div>
-  </section>
+        </article>
+      </div>
+      <div class="form-note">Interested in a booking? Please <a href="#contact">get in touch!</a></div>
+    </section>
 
-  <!-- Get in Touch Section -->
-  <section id="contact" aria-label="Contact for booking" tabindex="-1">
-    <h2>Get in Touch</h2>
-    <form class="contact-form" id="bookForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-label="Booking form" autocomplete="on">
-      <!-- Hidden honeypot field for spam protection -->
-      <input type="hidden" name="bot-field" />
-      <input type="hidden" name="form-name" value="contact" />
-      
-      <fieldset class="form-row"><label for="name">Name<span class="required">*</span></label><input type="text" id="name" name="name" required autocomplete="name" maxlength="100" spellcheck="false"/></fieldset>
-      <fieldset class="form-row"><label for="email">Email<span class="required">*</span></label><input type="email" id="email" name="email" required autocomplete="email" maxlength="254" spellcheck="false"/></fieldset>
-      <fieldset class="form-row"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" autocomplete="tel" maxlength="20" spellcheck="false"/></fieldset>
-      <fieldset class="form-row"><label for="date">Event Date<span class="required">*</span></label><input type="date" id="eventDate" name="eventDate" required autocomplete="off"/></fieldset>
-      <fieldset class="form-row"><label for="venue">Venue</label><input type="text" id="venue" name="venue" autocomplete="organization" maxlength="200" spellcheck="false"/></fieldset>
-      <fieldset class="form-row"><label for="message">Message<span class="required">*</span></label><textarea id="message" name="message" rows="4" required maxlength="2000" placeholder="Tell us about your event, preferred dates, and any special requirements..."></textarea></fieldset>
-      <div><button type="submit" class="cta-btn">Send</button></div>
-      <div id="formMsg" class="form-msg" role="status" style="display:none"></div>
-    </form>
-    <p class="form-note"><span class="required">*</span> Required fields</p>
-  </section>
-</main>
-<footer>
-  <div>© 2025 Reever • All rights reserved.</div>
-  <div class="footer-social">
-    <a href="https://instagram.com/reever.band" aria-label="Follow Reever on Instagram" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm12 1.75a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
-      </svg>
-    </a>
-  </div>
-</footer>
-<script>
-// Mobile nav toggle
-const navToggle=document.querySelector('.nav-toggle');
-const navMenu=document.getElementById('nav-menu');
-navToggle.addEventListener('click',()=>{
-  const expanded=navToggle.getAttribute('aria-expanded')==='true';
-  navToggle.setAttribute('aria-expanded',!expanded);
-  navMenu.classList.toggle('open');
-});
-// Smooth scroll and active link highlighting
-const navLinks=[...document.querySelectorAll('.nav-link')];
-const sections=[...document.querySelectorAll('main section')];
-const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
-function activateNav(idx){navLinks.forEach((a,i)=>a.classList.toggle('active',idx===i));}
-function scrollToSection(target){
-  if(!target)return;
-  const offset=target.offsetTop-61;
-  if(prefersReducedMotion.matches){
-    window.scrollTo(0,offset);
-  }else{
-    window.scrollTo({top:offset,behavior:'smooth'});
-  }
-  try{
-    target.focus({preventScroll:true});
-  }catch(_){
-    target.focus();
-  }
-}
-window.addEventListener('scroll',()=>{
-  let idx=0,from=window.scrollY+82;
-  sections.forEach((sec,i)=>{if(sec.offsetTop-60<from)idx=i;});
-  activateNav(idx);
-});
-navLinks.forEach((link,idx)=>{
-  link.addEventListener('click',e=>{
-    e.preventDefault();
-    if(window.innerWidth<769){navMenu.classList.remove('open');navToggle.setAttribute('aria-expanded','false');}
-    const targetId=link.getAttribute('href').slice(1);
-    const target=document.getElementById(targetId);
-    if(target){
-      if(!target.hasAttribute('tabindex')){target.setAttribute('tabindex','-1');}
-      scrollToSection(target);
-      activateNav(idx);
+    <!-- Instagram Feed Section -->
+    <section id="instagram" aria-label="Instagram feed" tabindex="-1">
+      <h2>Follow Us on Instagram</h2>
+      <p class="instagram-intro">Stay updated with our latest gigs, and band updates on
+        Instagram @reever.band</p>
+
+      <div id="instagram-feed" class="instagram-feed" role="feed" aria-busy="true">
+        <div class="instagram-loading" aria-live="polite">
+          <div class="spinner" aria-hidden="true"></div>
+          <p>Loading Instagram posts...</p>
+        </div>
+      </div>
+
+      <div class="instagram-cta" style="text-align:center;margin-top:2.5rem;">
+        <a href="https://instagram.com/reever.band" class="cta-btn" target="_blank" rel="noopener"
+          aria-label="Follow Reever band on Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+            style="margin-right:0.5rem;">
+            <path
+              d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm12 1.75a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+          </svg>
+          Follow Us on Instagram
+        </a>
+      </div>
+    </section>
+
+    <!-- Get in Touch Section -->
+    <section id="contact" aria-label="Contact for booking" tabindex="-1">
+      <h2>Get in Touch</h2>
+      <form class="contact-form" id="bookForm" name="contact" method="POST" data-netlify="true"
+        netlify-honeypot="bot-field" aria-label="Contact and booking form" autocomplete="on" novalidate>
+        <!-- Hidden honeypot field for spam protection -->
+        <input type="hidden" name="bot-field" />
+        <input type="hidden" name="form-name" value="contact" />
+
+        <fieldset class="form-row"><label for="name">Name<span class="required">*</span></label><input type="text"
+            id="name" name="name" required autocomplete="name" maxlength="100" spellcheck="false" /></fieldset>
+        <fieldset class="form-row"><label for="email">Email<span class="required">*</span></label><input type="email"
+            id="email" name="email" required autocomplete="email" maxlength="254" spellcheck="false" /></fieldset>
+        <fieldset class="form-row"><label for="phone">Phone</label><input type="tel" id="phone" name="phone"
+            autocomplete="tel" maxlength="20" spellcheck="false" /></fieldset>
+        <fieldset class="form-row"><label for="date">Event Date<span class="required">*</span></label><input type="date"
+            id="eventDate" name="eventDate" required autocomplete="off" /></fieldset>
+        <fieldset class="form-row"><label for="venue">Venue</label><input type="text" id="venue" name="venue"
+            autocomplete="organization" maxlength="200" spellcheck="false" /></fieldset>
+        <fieldset class="form-row"><label for="message">Message<span class="required">*</span></label><textarea
+            id="message" name="message" rows="4" required maxlength="2000"
+            placeholder="Tell us about your event, preferred dates, and any special requirements..."></textarea>
+        </fieldset>
+        <div><button type="submit" class="cta-btn">Send</button></div>
+        <div id="formMsg" class="form-msg" role="status" aria-live="polite" aria-atomic="true" style="display:none">
+        </div>
+      </form>
+      <p class="form-note"><span class="required">*</span> Required fields</p>
+    </section>
+  </main>
+  <footer>
+    <div>© 2025 Reever • All rights reserved.</div>
+    <div class="footer-social">
+      <a href="https://instagram.com/reever.band" aria-label="Follow Reever on Instagram" target="_blank"
+        rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm12 1.75a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      const newExpanded = !expanded;
+      navToggle.setAttribute('aria-expanded', newExpanded);
+      navToggle.setAttribute('aria-label', newExpanded ? 'Close navigation menu' : 'Open navigation menu');
+      navMenu.classList.toggle('open');
+
+      // Focus management for accessibility
+      if (newExpanded) {
+        // Focus first menu item when opening
+        const firstMenuItem = navMenu.querySelector('a');
+        if (firstMenuItem) {
+          setTimeout(() => firstMenuItem.focus(), 100);
+        }
+      }
+    });
+    // Smooth scroll and active link highlighting
+    const navLinks = [...document.querySelectorAll('.nav-link')];
+    const sections = [...document.querySelectorAll('main section')];
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function activateNav(idx) { navLinks.forEach((a, i) => a.classList.toggle('active', idx === i)); }
+    function scrollToSection(target) {
+      if (!target) return;
+      const offset = target.offsetTop - 61;
+      if (prefersReducedMotion.matches) {
+        window.scrollTo(0, offset);
+      } else {
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
+      try {
+        target.focus({ preventScroll: true });
+      } catch (_) {
+        target.focus();
+      }
     }
-  });
-});
-// Song list modal
-const songOverlay=document.querySelector('.songlist-overlay');
-const openSongBtn=document.querySelector('.songlist-open');
-const closeSongBtn=document.querySelector('.songlist-overlay .modal-close');
-const downloadSongBtn=document.querySelector('.songlist-download');
-const songListText = `
+    window.addEventListener('scroll', () => {
+      let idx = 0, from = window.scrollY + 82;
+      sections.forEach((sec, i) => { if (sec.offsetTop - 60 < from) idx = i; });
+      activateNav(idx);
+    });
+    navLinks.forEach((link, idx) => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        if (window.innerWidth < 769) {
+          navMenu.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.setAttribute('aria-label', 'Open navigation menu');
+        }
+        const targetId = link.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          if (!target.hasAttribute('tabindex')) { target.setAttribute('tabindex', '-1'); }
+          scrollToSection(target);
+          activateNav(idx);
+        }
+      });
+
+      // Enhanced keyboard navigation for menu items
+      link.addEventListener('keydown', (e) => {
+        if (window.innerWidth < 769 && navMenu.classList.contains('open')) {
+          switch (e.key) {
+            case 'Escape':
+              e.preventDefault();
+              navMenu.classList.remove('open');
+              navToggle.setAttribute('aria-expanded', 'false');
+              navToggle.setAttribute('aria-label', 'Open navigation menu');
+              navToggle.focus();
+              break;
+            case 'ArrowDown':
+              e.preventDefault();
+              const nextLink = navLinks[idx + 1] || navLinks[0];
+              nextLink.focus();
+              break;
+            case 'ArrowUp':
+              e.preventDefault();
+              const prevLink = navLinks[idx - 1] || navLinks[navLinks.length - 1];
+              prevLink.focus();
+              break;
+          }
+        }
+      });
+    });
+    // Song list modal
+    const songOverlay = document.querySelector('.songlist-overlay');
+    const openSongBtn = document.querySelector('.songlist-open');
+    const closeSongBtn = document.querySelector('.songlist-overlay .modal-close');
+    const downloadSongBtn = document.querySelector('.songlist-download');
+    const songListText = `
 <div style="font-family:system-ui,sans-serif;font-size:1rem;padding:24px;">
   <h2 style="text-align:center;margin-bottom:1.4em;">Setlist</h2>
   <div class="songlist-columns" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.4rem;max-width:750px;margin:0 auto;">
@@ -579,212 +1657,417 @@ const songListText = `
     </ul>
   </div>
 </div>`;
-function openSonglist(){
-  songOverlay.classList.add('open');
-  songOverlay.setAttribute('aria-hidden','false');
-  document.body.classList.add('no-scroll');
-  openSongBtn&&openSongBtn.setAttribute('aria-expanded','true');
-  const focusable=songOverlay.querySelector('button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])');
-  focusable&&focusable.focus();
-}
-function closeSonglist(){
-  songOverlay.classList.remove('open');
-  songOverlay.setAttribute('aria-hidden','true');
-  document.body.classList.remove('no-scroll');
-  openSongBtn&&openSongBtn.setAttribute('aria-expanded','false');
-  openSongBtn&&openSongBtn.focus();
-}
-openSongBtn&&openSongBtn.addEventListener('click',()=>{
-  if(window.innerWidth < 640){
-    const win=window.open('','reever-setlist','width=520,height=680');
-    if(win){
-      win.document.write(`<!DOCTYPE html><html><head><title>Song List</title><meta charset='UTF-8'><meta name="viewport" content="width=device-width,initial-scale=1.0"></head><body style='margin:0;background:#fff;'>${songListText}</body></html>`);
-      win.document.close();
-      win.focus();
-    }else{
-      openSonglist();
-    }
-  }else{
-    openSonglist();
-  }
-});
-closeSongBtn&&closeSongBtn.addEventListener('click',closeSonglist);
-songOverlay&&songOverlay.addEventListener('click',e=>{
-  if(e.target===songOverlay){closeSonglist();}
-});
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'&&songOverlay.classList.contains('open')){closeSonglist();}
-});
-downloadSongBtn&&downloadSongBtn.addEventListener('click',()=>{
-  const blob=new Blob([songListText],{type:'text/plain'});
-  const url=URL.createObjectURL(blob);
-  const link=document.createElement('a');
-  link.href=url;
-  link.download='reever-song-list.txt';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
-});
-// Media carousel
-const carouselTrack=document.querySelector('.carousel-track');
-const carouselSlides=[...document.querySelectorAll('.carousel-slide')];
-const prevBtn=document.querySelector('.carousel-control.prev');
-const nextBtn=document.querySelector('.carousel-control.next');
-const carouselDots=[...document.querySelectorAll('.carousel-dots .dot')];
-let carouselIndex=0;
-function updateCarousel(idx){
-  if(!carouselTrack)return;
-  carouselIndex=(idx+carouselSlides.length)%carouselSlides.length;
-  carouselTrack.style.transform=`translateX(-${carouselIndex*100}%)`;
-  carouselDots.forEach((dot,i)=>{
-    const active=i===carouselIndex;
-    dot.classList.toggle('active',active);
-    dot.setAttribute('aria-selected',active?'true':'false');
-  });
-}
-prevBtn&&prevBtn.addEventListener('click',()=>updateCarousel(carouselIndex-1));
-nextBtn&&nextBtn.addEventListener('click',()=>updateCarousel(carouselIndex+1));
-carouselDots.forEach((dot,i)=>dot.addEventListener('click',()=>updateCarousel(i)));
-let pointerStartX=null,pointerId=null;
-const carouselWindow=document.querySelector('.carousel-window');
-if(carouselWindow){
-  carouselWindow.addEventListener('pointerdown',e=>{
-    pointerStartX=e.clientX;
-    pointerId=e.pointerId;
-    carouselWindow.setPointerCapture(pointerId);
-  });
-  carouselWindow.addEventListener('pointerup',e=>{
-    if(pointerStartX===null)return;
-    const delta=e.clientX-pointerStartX;
-    if(Math.abs(delta)>50){
-      if(delta>0){updateCarousel(carouselIndex-1);}else{updateCarousel(carouselIndex+1);}
-    }
-    if(pointerId!==null){carouselWindow.releasePointerCapture(pointerId);}
-    pointerStartX=null;
-    pointerId=null;
-  });
-  carouselWindow.addEventListener('pointercancel',()=>{
-    if(pointerId!==null){carouselWindow.releasePointerCapture(pointerId);}
-    pointerStartX=null;
-    pointerId=null;
-  });
-}
-updateCarousel(0);
-// Add to Calendar (ICS)
-function makeICS(title,date,venue,town){
-  const dtStart=date.replace(/[-:]/g,"").slice(0,15)+"Z";
-  return `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:${title}\nDTSTART:${dtStart}\nLOCATION:${venue}, ${town}\nDESCRIPTION=Reever live\nEND:VEVENT\nEND:VCALENDAR`;
-}
-[...document.querySelectorAll('.gig-addcal')].forEach(btn=>{
-  btn.addEventListener('click',e=>{
-    e.preventDefault();
-    const {title,date,venue,town}=btn.dataset;
-    const ics=makeICS(title,date,venue,town);
-    const blob=new Blob([ics],{type:'text/calendar'});
-    const url=URL.createObjectURL(blob);
-    const link=document.createElement('a');
-    link.href=url;link.download=`${title.replace(/\s/g,'_')}.ics`;
-    document.body.appendChild(link);link.click();setTimeout(()=>{document.body.removeChild(link);URL.revokeObjectURL(url)},300);
-  });
-});
-// Booking Form Validation and Secure Submission
-const form=document.getElementById('bookForm'),msg=document.getElementById('formMsg');
-let isSubmitting=false;
+    function openSonglist() {
+      songOverlay.classList.add('open');
+      songOverlay.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('no-scroll');
+      openSongBtn && openSongBtn.setAttribute('aria-expanded', 'true');
 
+      // Focus management for accessibility
+      const modal = songOverlay.querySelector('.songlist-modal');
+      if (modal) {
+        modal.focus();
+      }
 
+      // Trap focus within modal
+      trapFocusInModal(songOverlay);
+    }
 
-// Enhanced validation
-function validateForm(){
-  let valid=true,first=null;
-  const errors=[];
-  
-  [...form.elements].forEach((el)=>{
-    if(el.tagName==='BUTTON')return;
-    el.style.borderColor='';
-    
-    if(el.required&&!el.value.trim()){
-      el.style.borderColor='#e52560';
-      valid=false;
-      first=first||el;
-      errors.push(`${el.name||el.id} is required`);
+    function closeSonglist() {
+      songOverlay.classList.remove('open');
+      songOverlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('no-scroll');
+      openSongBtn && openSongBtn.setAttribute('aria-expanded', 'false');
+      openSongBtn && openSongBtn.focus();
+
+      // Remove focus trap
+      removeFocusTrap();
     }
-    
-    if(el.type==='email'&&el.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)){
-      el.style.borderColor='#e52560';
-      valid=false;
-      first=first||el;
-      errors.push('Please enter a valid email address');
+
+    // Focus trap functionality for modal accessibility
+    let focusableElements = [];
+    let firstFocusableElement = null;
+    let lastFocusableElement = null;
+
+    function trapFocusInModal(modal) {
+      focusableElements = modal.querySelectorAll('button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])');
+      firstFocusableElement = focusableElements[0];
+      lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+      modal.addEventListener('keydown', handleModalKeydown);
     }
-    
-    if(el.type==='tel'&&el.value&&!/^[\d\s\-\+\(\)]+$/.test(el.value)){
-      el.style.borderColor='#e52560';
-      valid=false;
-      first=first||el;
-      errors.push('Please enter a valid phone number');
-    }
-    
-    if(el.type==='date'&&el.value){
-      const selectedDate=new Date(el.value);
-      const today=new Date();
-      today.setHours(0,0,0,0);
-      if(selectedDate<today){
-        el.style.borderColor='#e52560';
-        valid=false;
-        first=first||el;
-        errors.push('Event date must be in the future');
+
+    function removeFocusTrap() {
+      if (songOverlay) {
+        songOverlay.removeEventListener('keydown', handleModalKeydown);
       }
     }
-  });
-  
-  return {valid,first,errors};
-}
 
-form.addEventListener('submit',async(e)=>{
-  e.preventDefault();
-  
-  if(isSubmitting)return;
-  
-  const validation=validateForm();
-  if(!validation.valid){
-    msg.textContent=validation.errors[0]||'Please fill in all required fields correctly!';
-    msg.style.display='block';
-    msg.className='form-msg';
-    validation.first&&validation.first.focus();
-    return;
-  }
-  
-  isSubmitting=true;
-  msg.textContent='Sending your message...';
-  msg.style.display='block';
-  msg.className='form-msg';
-  
-  try{
-    // Submit form using Netlify Forms
-    const formData = new FormData(form);
-    
-    const response = await fetch('/', {
-      method: 'POST',
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString()
-    });
-    
-    if (response.ok) {
-      msg.textContent='Thank you! We have received your enquiry and will be in touch soon.';
-      msg.className='form-msg msg-success';
-      form.reset();
-      setTimeout(()=>{msg.style.display='none';},8000);
-    } else {
-      throw new Error('Network response was not ok');
+    function handleModalKeydown(e) {
+      if (e.key === 'Tab') {
+        if (e.shiftKey) {
+          if (document.activeElement === firstFocusableElement) {
+            e.preventDefault();
+            lastFocusableElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastFocusableElement) {
+            e.preventDefault();
+            firstFocusableElement.focus();
+          }
+        }
+      }
     }
-    
-  }catch(error){
-    msg.textContent='Sorry, there was an error sending your message. Please try again.';
-    msg.className='form-msg';
-  }finally{
-    isSubmitting=false;
-  }
-});
-</script>
+    openSongBtn && openSongBtn.addEventListener('click', () => {
+      if (window.innerWidth < 640) {
+        const win = window.open('', 'reever-setlist', 'width=520,height=680');
+        if (win) {
+          win.document.write(`<!DOCTYPE html><html><head><title>Song List</title><meta charset='UTF-8'><meta name="viewport" content="width=device-width,initial-scale=1.0"></head><body style='margin:0;background:#fff;'>${songListText}</body></html>`);
+          win.document.close();
+          win.focus();
+        } else {
+          openSonglist();
+        }
+      } else {
+        openSonglist();
+      }
+    });
+    closeSongBtn && closeSongBtn.addEventListener('click', closeSonglist);
+    songOverlay && songOverlay.addEventListener('click', e => {
+      if (e.target === songOverlay) { closeSonglist(); }
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && songOverlay.classList.contains('open')) { closeSonglist(); }
+    });
+    downloadSongBtn && downloadSongBtn.addEventListener('click', () => {
+      const blob = new Blob([songListText], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'reever-song-list.txt';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    });
+    // Media carousel
+    const carouselTrack = document.querySelector('.carousel-track');
+    const carouselSlides = [...document.querySelectorAll('.carousel-slide')];
+    const prevBtn = document.querySelector('.carousel-control.prev');
+    const nextBtn = document.querySelector('.carousel-control.next');
+    const carouselDots = [...document.querySelectorAll('.carousel-dots .dot')];
+    let carouselIndex = 0;
+    function updateCarousel(idx) {
+      if (!carouselTrack) return;
+      carouselIndex = (idx + carouselSlides.length) % carouselSlides.length;
+      carouselTrack.style.transform = `translateX(-${carouselIndex * 100}%)`;
+      carouselDots.forEach((dot, i) => {
+        const active = i === carouselIndex;
+        dot.classList.toggle('active', active);
+        dot.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+
+      // Announce carousel change to screen readers
+      const carouselContainer = document.querySelector('.media-carousel');
+      if (carouselContainer) {
+        carouselContainer.setAttribute('aria-label', `Band photo carousel, showing photo ${carouselIndex + 1} of ${carouselSlides.length}`);
+      }
+    }
+    prevBtn && prevBtn.addEventListener('click', () => updateCarousel(carouselIndex - 1));
+    nextBtn && nextBtn.addEventListener('click', () => updateCarousel(carouselIndex + 1));
+    carouselDots.forEach((dot, i) => dot.addEventListener('click', () => updateCarousel(i)));
+
+    // Enhanced keyboard navigation for carousel
+    const carouselContainer = document.querySelector('.media-carousel');
+    if (carouselContainer) {
+      carouselContainer.addEventListener('keydown', (e) => {
+        if (e.target.classList.contains('carousel-control') || e.target.classList.contains('dot')) {
+          switch (e.key) {
+            case 'ArrowLeft':
+              e.preventDefault();
+              updateCarousel(carouselIndex - 1);
+              break;
+            case 'ArrowRight':
+              e.preventDefault();
+              updateCarousel(carouselIndex + 1);
+              break;
+            case 'Home':
+              e.preventDefault();
+              updateCarousel(0);
+              break;
+            case 'End':
+              e.preventDefault();
+              updateCarousel(carouselSlides.length - 1);
+              break;
+          }
+        }
+      });
+    }
+    let pointerStartX = null, pointerId = null;
+    const carouselWindow = document.querySelector('.carousel-window');
+    if (carouselWindow) {
+      carouselWindow.addEventListener('pointerdown', e => {
+        pointerStartX = e.clientX;
+        pointerId = e.pointerId;
+        carouselWindow.setPointerCapture(pointerId);
+      });
+      carouselWindow.addEventListener('pointerup', e => {
+        if (pointerStartX === null) return;
+        const delta = e.clientX - pointerStartX;
+        if (Math.abs(delta) > 50) {
+          if (delta > 0) { updateCarousel(carouselIndex - 1); } else { updateCarousel(carouselIndex + 1); }
+        }
+        if (pointerId !== null) { carouselWindow.releasePointerCapture(pointerId); }
+        pointerStartX = null;
+        pointerId = null;
+      });
+      carouselWindow.addEventListener('pointercancel', () => {
+        if (pointerId !== null) { carouselWindow.releasePointerCapture(pointerId); }
+        pointerStartX = null;
+        pointerId = null;
+      });
+    }
+    updateCarousel(0);
+    // Add to Calendar (ICS)
+    function makeICS(title, date, venue, town) {
+      const dtStart = date.replace(/[-:]/g, "").slice(0, 15) + "Z";
+      return `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:${title}\nDTSTART:${dtStart}\nLOCATION:${venue}, ${town}\nDESCRIPTION=Reever live\nEND:VEVENT\nEND:VCALENDAR`;
+    }
+    [...document.querySelectorAll('.gig-addcal')].forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const { title, date, venue, town } = btn.dataset;
+        const ics = makeICS(title, date, venue, town);
+        const blob = new Blob([ics], { type: 'text/calendar' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url; link.download = `${title.replace(/\s/g, '_')}.ics`;
+        document.body.appendChild(link); link.click(); setTimeout(() => { document.body.removeChild(link); URL.revokeObjectURL(url) }, 300);
+      });
+    });
+    // Instagram Feed Integration
+    async function loadInstagramFeed() {
+      const feedContainer = document.getElementById('instagram-feed');
+      const fallbackContainer = document.getElementById('instagram-fallback');
+
+      // Instagram posts data - ONLY 3 POSTS
+      // 
+      // HOW TO CONNECT TO YOUR REAL INSTAGRAM:
+      // Option 1 (Manual - Recommended for static sites):
+      //   1. Go to https://www.instagram.com/reever.band/
+      //   2. Open your 3 latest posts
+      //   3. For each post: Right-click image > Save image as > Save to media/ folder (e.g., instagram-1.jpg)
+      //   4. Copy the post URL and caption
+      //   5. Update the array below with your real data
+      //   6. Update this every time you want to show new posts
+      //
+      // Option 2 (Automatic - Requires backend):
+      //   Use a service like Juicer.io, SnapWidget, or build a serverless function
+      //   that fetches from Instagram API (requires OAuth and access tokens)
+      //
+      const instagramPosts = [
+        {
+          url: 'https://www.instagram.com/reever.band/',
+          image: 'media/reever-live-photo.jpg',
+          caption: 'Live at The Red Lion! 🎸 #livemusic #coversband'
+        },
+        {
+          url: 'https://www.instagram.com/reever.band/',
+          image: 'media/reever-band-photo.jpg',
+          caption: 'The band is ready to rock! 🎵 #reeverband #woking'
+        },
+        {
+          url: 'https://www.instagram.com/reever.band/',
+          image: 'media/reever-band-performance-1.jpg',
+          caption: 'Getting ready for the weekend gig! 🔥 #bandlife'
+        }
+      ];
+
+      try {
+        feedContainer.innerHTML = '';
+        feedContainer.setAttribute('aria-busy', 'false');
+
+        let loadedCount = 0;
+
+        for (const post of instagramPosts) {
+          try {
+            const postDiv = document.createElement('div');
+            postDiv.className = 'instagram-post';
+
+            const link = document.createElement('a');
+            link.href = post.url;
+            link.target = '_blank';
+            link.rel = 'noopener';
+            link.setAttribute('aria-label', `View Instagram post: ${post.caption}`);
+
+            const img = document.createElement('img');
+            img.src = post.image;
+            img.alt = post.caption;
+            img.loading = 'lazy';
+            img.decoding = 'async';
+
+            const overlay = document.createElement('div');
+            overlay.className = 'instagram-post-overlay';
+            overlay.innerHTML = `<p class="instagram-post-caption">${post.caption}</p>`;
+
+            link.appendChild(img);
+            link.appendChild(overlay);
+            postDiv.appendChild(link);
+            feedContainer.appendChild(postDiv);
+
+            loadedCount++;
+          } catch (error) {
+            console.warn('Failed to load Instagram post:', post.url, error);
+          }
+        }
+
+        // If no posts loaded, show fallback
+        if (loadedCount === 0) {
+          throw new Error('No posts loaded');
+        }
+
+      } catch (error) {
+        console.error('Instagram feed failed to load:', error);
+        feedContainer.style.display = 'none';
+        fallbackContainer.style.display = 'block';
+      }
+    }
+
+    // Load Instagram feed asynchronously when section is near viewport
+    function initInstagramFeed() {
+      const instagramSection = document.getElementById('instagram');
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              loadInstagramFeed();
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          rootMargin: '200px'
+        });
+
+        observer.observe(instagramSection);
+      } else {
+        // Fallback for browsers without IntersectionObserver
+        loadInstagramFeed();
+      }
+    }
+
+    // Initialize Instagram feed when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initInstagramFeed);
+    } else {
+      initInstagramFeed();
+    }
+
+    // Booking Form Validation and Secure Submission
+    const form = document.getElementById('bookForm'), msg = document.getElementById('formMsg');
+    let isSubmitting = false;
+
+
+
+    // Enhanced validation
+    function validateForm() {
+      let valid = true, first = null;
+      const errors = [];
+
+      [...form.elements].forEach((el) => {
+        if (el.tagName === 'BUTTON') return;
+        el.style.borderColor = '';
+        el.removeAttribute('aria-invalid');
+        el.removeAttribute('aria-describedby');
+
+        if (el.required && !el.value.trim()) {
+          el.style.borderColor = '#e52560';
+          el.setAttribute('aria-invalid', 'true');
+          valid = false;
+          first = first || el;
+          const fieldName = el.labels?.[0]?.textContent || el.name || el.id;
+          errors.push(`${fieldName} is required`);
+        }
+
+        if (el.type === 'email' && el.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)) {
+          el.style.borderColor = '#e52560';
+          el.setAttribute('aria-invalid', 'true');
+          valid = false;
+          first = first || el;
+          errors.push('Please enter a valid email address');
+        }
+
+        if (el.type === 'tel' && el.value && !/^[\d\s\-\+\(\)]+$/.test(el.value)) {
+          el.style.borderColor = '#e52560';
+          el.setAttribute('aria-invalid', 'true');
+          valid = false;
+          first = first || el;
+          errors.push('Please enter a valid phone number');
+        }
+
+        if (el.type === 'date' && el.value) {
+          const selectedDate = new Date(el.value);
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          if (selectedDate < today) {
+            el.style.borderColor = '#e52560';
+            el.setAttribute('aria-invalid', 'true');
+            valid = false;
+            first = first || el;
+            errors.push('Event date must be in the future');
+          }
+        }
+      });
+
+      return { valid, first, errors };
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (isSubmitting) return;
+
+      const validation = validateForm();
+      if (!validation.valid) {
+        msg.textContent = validation.errors[0] || 'Please fill in all required fields correctly!';
+        msg.style.display = 'block';
+        msg.className = 'form-msg';
+        validation.first && validation.first.focus();
+        return;
+      }
+
+      isSubmitting = true;
+      msg.textContent = 'Sending your message...';
+      msg.style.display = 'block';
+      msg.className = 'form-msg';
+
+      try {
+        // Submit form using Netlify Forms
+        const formData = new FormData(form);
+
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString()
+        });
+
+        if (response.ok) {
+          msg.textContent = 'Thank you! We have received your enquiry and will be in touch soon.';
+          msg.className = 'form-msg msg-success';
+          form.reset();
+          setTimeout(() => { msg.style.display = 'none'; }, 8000);
+        } else {
+          throw new Error('Network response was not ok');
+        }
+
+      } catch (error) {
+        msg.textContent = 'Sorry, there was an error sending your message. Please try again.';
+        msg.className = 'form-msg';
+      } finally {
+        isSubmitting = false;
+      }
+    });
+  </script>
 </body>
+
 </html>
