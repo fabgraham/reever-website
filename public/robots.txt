@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://reever.band/sitemap.xml
+
+# Disallow crawling of admin areas
+Disallow: /.netlify/
+Disallow: /admin/
