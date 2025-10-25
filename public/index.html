@@ -29,8 +29,7 @@
   <link rel="preconnect" href="https://www.instagram.com">
   <link rel="preconnect" href="https://identity.netlify.com">
 
-  <!-- Netlify Identity Widget -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Netlify Identity Widget - Loaded conditionally after consent -->
 
   <!-- JSON-LD MusicGroup schema -->
   <script type="application/ld+json">{
@@ -619,6 +618,35 @@
       box-shadow: var(--shadow);
     }
 
+    .spotify-blocked {
+      width: min(100%, 640px);
+      height: 360px;
+      margin: 0 auto;
+      background: var(--bg-alt);
+      border: 2px dashed var(--divider);
+      border-radius: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .spotify-blocked-content {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .spotify-blocked-content h3 {
+      margin: 0 0 1rem;
+      font-size: 1.5rem;
+      color: var(--text);
+    }
+
+    .spotify-blocked-content p {
+      margin: 0 0 1.5rem;
+      color: var(--text);
+      opacity: 0.8;
+    }
+
     body.no-scroll {
       overflow: hidden;
     }
@@ -972,6 +1000,32 @@
       margin: 1.5em auto 0;
     }
 
+    .form-privacy-notice {
+      background: var(--bg-alt);
+      border-left: 3px solid var(--accent);
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .form-privacy-notice p {
+      margin: 0;
+      color: #4a5c78;
+      line-height: 1.5;
+    }
+
+    .form-privacy-notice a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .form-privacy-notice a:hover,
+    .form-privacy-notice a:focus {
+      text-decoration: underline;
+    }
+
     .form-msg {
       padding: 0.6em 1em;
       border-radius: 0.9em;
@@ -1179,6 +1233,215 @@
       color: #FF6A88;
       outline: none;
     }
+
+    .footer-links {
+      margin-top: 0.8em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--hero-text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .footer-links span {
+      color: var(--hero-text);
+      opacity: 0.6;
+    }
+
+    /* Cookie Consent Banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(120deg, var(--bg-alt) 0%, var(--bg-alt-dark) 100%);
+      box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      z-index: 1000;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      border-top: 3px solid var(--accent);
+    }
+
+    .cookie-banner.visible {
+      transform: translateY(0);
+    }
+
+    .cookie-banner-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .cookie-banner-text {
+      flex: 1;
+    }
+
+    .cookie-banner-heading {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .cookie-banner-text p {
+      margin: 0;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    .cookie-banner-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .cookie-banner-link:hover,
+    .cookie-banner-link:focus {
+      text-decoration: underline;
+    }
+
+    .cookie-banner-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .cookie-btn {
+      padding: 0.6em 1.2em;
+      border-radius: 1.5em;
+      border: 2px solid var(--accent);
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s, color 0.2s;
+      font-size: 0.9rem;
+      min-width: 120px;
+      flex: 1;
+    }
+
+    .cookie-btn:hover,
+    .cookie-btn:focus {
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .cookie-btn-all {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .cookie-btn-all:hover,
+    .cookie-btn-all:focus {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
+    .cookie-btn-spotify {
+      background: #fff;
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .cookie-btn-spotify:hover,
+    .cookie-btn-spotify:focus {
+      background: var(--bg-alt);
+    }
+
+    .cookie-btn-essential {
+      background: #fff;
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .cookie-btn-essential:hover,
+    .cookie-btn-essential:focus {
+      background: var(--bg-alt);
+    }
+
+    @media (max-width: 768px) {
+      .cookie-banner-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+      }
+
+      .cookie-banner-actions {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .cookie-btn {
+        width: 100%;
+        flex: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cookie-banner-actions {
+        gap: 0.5rem;
+      }
+
+      .cookie-btn {
+        font-size: 0.85rem;
+        padding: 0.5em 1em;
+      }
+
+      .btn-text-desktop {
+        display: none;
+      }
+
+      .btn-text-mobile {
+        display: inline;
+      }
+    }
+
+    @media (min-width: 601px) {
+      .btn-text-desktop {
+        display: inline;
+      }
+
+      .btn-text-mobile {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cookie-banner {
+        padding: 1rem;
+      }
+
+      .cookie-banner-heading {
+        font-size: 1.1rem;
+      }
+
+      .cookie-banner-text p {
+        font-size: 0.9rem;
+      }
+
+      .cookie-btn {
+        font-size: 0.9rem;
+        padding: 0.6em 1.2em;
+      }
+    }
   </style>
 </head>
 
@@ -1197,7 +1460,7 @@
       <ul id="nav-menu" class="nav-menu">
         <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#songs" class="nav-link">Songs</a></li>
+        <li><a href="#songs" class="nav-link">Setlist</a></li>
         <li><a href="#media" class="nav-link">Gallery</a></li>
         <li><a href="#gigs" class="nav-link">Upcoming Gigs</a></li>
         <li><a href="#contact" class="nav-link">Contact Us</a></li>
@@ -1335,18 +1598,21 @@
         </div>
       </div>
       <div class="spotify-embed">
-        <!-- Replace the src below with your own Spotify playlist -->
-        <!--<iframe src="https://open.spotify.com/playlist/5RMdKqzOaEiMm3X6h5aSTw?si=hGHojuhoTIiyx7-tNWHtUQ" frameborder="0" allow="encrypted-media" title="Band's Spotify Playlist"></iframe> -->
-        <iframe data-testid="embed-iframe" style="border-radius:12px"
-          src="https://open.spotify.com/embed/playlist/5RMdKqzOaEiMm3X6h5aSTw?utm_source=generator&theme=0" width="100%"
-          height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; 
-      encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <!-- Spotify embed placeholder - loads after cookie consent -->
+        <div id="spotify-placeholder" class="spotify-blocked"
+          data-src="https://open.spotify.com/embed/playlist/5RMdKqzOaEiMm3X6h5aSTw?utm_source=generator&theme=0">
+          <div class="spotify-blocked-content">
+            <h3>🎵 Spotify Playlist</h3>
+            <p>Cookie consent is required to view Spotify content</p>
+            <button type="button" class="cta-btn" onclick="showCookieBanner()">Please Enable Cookies</button>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Media Section -->
     <section id="media" aria-label="Media gallery and video" tabindex="-1">
-      <h2>See Us in Action</h2>
+      <h2>Gallery</h2>
       <div class="media-carousel" role="region" aria-label="Band photo carousel" aria-live="polite">
         <button type="button" class="carousel-control prev" aria-label="View previous photo in carousel">‹</button>
         <div class="carousel-window">
@@ -1422,7 +1688,6 @@
           </div>
         </article>
       </div>
-      <div class="form-note">Interested in a booking? Please <a href="#contact">get in touch!</a></div>
     </section>
 
     <!-- Instagram Feed Section -->
@@ -1465,12 +1730,14 @@
             autocomplete="tel" maxlength="20" spellcheck="false" /></fieldset>
         <fieldset class="form-row"><label for="date">Event Date<span class="required">*</span></label><input type="date"
             id="eventDate" name="eventDate" required autocomplete="off" /></fieldset>
-        <fieldset class="form-row"><label for="venue">Venue</label><input type="text" id="venue" name="venue"
-            autocomplete="organization" maxlength="200" spellcheck="false" /></fieldset>
         <fieldset class="form-row"><label for="message">Message<span class="required">*</span></label><textarea
             id="message" name="message" rows="4" required maxlength="2000"
             placeholder="Tell us about your event, preferred dates, and any special requirements..."></textarea>
         </fieldset>
+        <div id="form-privacy-notice" class="form-privacy-notice" style="display: none;">
+          <p>Please not we use your information to respond to your enquiry and discuss potential bookings.
+            You can check our <a href="/privacy.html">Privacy Policy</a> for details on how we handle your data.</p>
+        </div>
         <div><button type="submit" class="cta-btn">Send</button></div>
         <div id="formMsg" class="form-msg" role="status" aria-live="polite" aria-atomic="true" style="display:none">
         </div>
@@ -1480,6 +1747,11 @@
   </main>
   <footer>
     <div>© 2025 Reever • All rights reserved.</div>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <span>•</span>
+      <a href="#" id="footer-cookie-settings">Cookie Settings</a>
+    </div>
     <div class="footer-social">
       <a href="https://instagram.com/reever.band" aria-label="Follow Reever on Instagram" target="_blank"
         rel="noopener">
@@ -1892,6 +2164,12 @@
         return;
       }
 
+      // Show privacy notice before submitting
+      const privacyNotice = document.getElementById('form-privacy-notice');
+      if (privacyNotice) {
+        privacyNotice.style.display = 'block';
+      }
+
       isSubmitting = true;
       msg.textContent = 'Sending your message...';
       msg.style.display = 'block';
@@ -1981,7 +2259,314 @@
     } else {
       loadInstagramFeed();
     }
+
+    // Cookie Consent Management System
+    const CookieConsent = {
+      STORAGE_KEY: 'reeverCookieConsent',
+      EXPIRY_MONTHS: 6,
+
+      // Check if user has made a choice
+      hasConsent() {
+        try {
+          const consent = localStorage.getItem(this.STORAGE_KEY);
+          return consent !== null;
+        } catch (e) {
+          console.warn('localStorage not available');
+          return false;
+        }
+      },
+
+      // Get user's consent level
+      getConsent() {
+        try {
+          const data = localStorage.getItem(this.STORAGE_KEY);
+          if (!data) return null;
+
+          const parsed = JSON.parse(data);
+          // Check if expired (6 months)
+          if (Date.now() > parsed.expiry) {
+            this.clearConsent();
+            return null;
+          }
+
+          // Handle legacy format (accepted: true/false)
+          if (parsed.accepted !== undefined) {
+            return parsed.accepted ? 'all' : 'essential';
+          }
+
+          return parsed.level || 'essential';
+        } catch (e) {
+          console.warn('Error reading consent:', e);
+          return null;
+        }
+      },
+
+      // Store user's choice (now supports granular consent)
+      setConsent(level) {
+        try {
+          const data = {
+            level: level, // 'essential', 'spotify', or 'all'
+            timestamp: Date.now(),
+            expiry: Date.now() + (this.EXPIRY_MONTHS * 30 * 24 * 60 * 60 * 1000) // 6 months
+          };
+          localStorage.setItem(this.STORAGE_KEY, JSON.stringify(data));
+          console.log('Consent saved:', level);
+        } catch (e) {
+          console.warn('Error saving consent:', e);
+        }
+      },
+
+      // Clear consent
+      clearConsent() {
+        try {
+          localStorage.removeItem(this.STORAGE_KEY);
+        } catch (e) {
+          console.warn('Error clearing consent:', e);
+        }
+      },
+
+      // Initialize on page load
+      init() {
+        if (!this.hasConsent()) {
+          this.showBanner();
+        } else {
+          const consentLevel = this.getConsent();
+          this.applyConsentLevel(consentLevel);
+        }
+      },
+
+      // Show the banner with focus management
+      showBanner() {
+        const banner = document.getElementById('cookie-banner');
+        if (banner) {
+          banner.style.display = 'block';
+          setTimeout(() => {
+            banner.classList.add('visible');
+            // Focus first button for accessibility
+            const firstButton = banner.querySelector('.cookie-btn');
+            if (firstButton) {
+              firstButton.focus();
+            }
+          }, 10);
+
+          // Trap focus within banner
+          this.trapFocus(banner);
+        }
+      },
+
+      // Hide the banner
+      hideBanner() {
+        const banner = document.getElementById('cookie-banner');
+        if (banner) {
+          banner.classList.remove('visible');
+          setTimeout(() => {
+            banner.style.display = 'none';
+            this.removeFocusTrap();
+          }, 300);
+        }
+      },
+
+      // Handle essential only
+      acceptEssential() {
+        this.setConsent('essential');
+        this.hideBanner();
+        this.applyConsentLevel('essential');
+      },
+
+      // Handle essential + Spotify
+      acceptSpotify() {
+        this.setConsent('spotify');
+        this.hideBanner();
+        this.applyConsentLevel('spotify');
+      },
+
+      // Handle accept all
+      acceptAll() {
+        this.setConsent('all');
+        this.hideBanner();
+        this.applyConsentLevel('all');
+      },
+
+      // Apply consent level
+      applyConsentLevel(level) {
+        switch (level) {
+          case 'essential':
+            this.blockThirdPartyServices();
+            break;
+          case 'spotify':
+            this.loadSpotifyOnly();
+            break;
+          case 'all':
+            this.loadAllServices();
+            break;
+          default:
+            this.blockThirdPartyServices();
+        }
+      },
+
+      // Load Spotify only
+      loadSpotifyOnly() {
+        this.loadSpotify();
+        // Don't load Netlify Identity
+      },
+
+      // Load all services
+      loadAllServices() {
+        this.loadSpotify();
+        this.loadNetlifyIdentity();
+      },
+
+      // Load Spotify iframe
+      loadSpotify() {
+        const spotifyPlaceholder = document.getElementById('spotify-placeholder');
+        if (spotifyPlaceholder && spotifyPlaceholder.dataset.src) {
+          const iframe = document.createElement('iframe');
+          iframe.src = spotifyPlaceholder.dataset.src;
+          iframe.width = '100%';
+          iframe.height = '352';
+          iframe.frameBorder = '0';
+          iframe.allowFullscreen = true;
+          iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+          iframe.loading = 'lazy';
+          iframe.style.borderRadius = '12px';
+          iframe.setAttribute('data-testid', 'embed-iframe');
+          spotifyPlaceholder.replaceWith(iframe);
+        }
+      },
+
+      // Load Netlify Identity script
+      loadNetlifyIdentity() {
+        if (!window.netlifyIdentity) {
+          const script = document.createElement('script');
+          script.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+          script.async = true;
+          document.head.appendChild(script);
+        }
+      },
+
+      // Block third-party services (essential only)
+      blockThirdPartyServices() {
+        const spotifyPlaceholder = document.getElementById('spotify-placeholder');
+        if (spotifyPlaceholder) {
+          const content = spotifyPlaceholder.querySelector('.spotify-blocked-content p');
+          if (content) {
+            content.textContent = 'Enable Spotify cookies to view playlist content.';
+          }
+          const button = spotifyPlaceholder.querySelector('.cta-btn');
+          if (button) {
+            button.textContent = 'Change Cookie Settings';
+            button.onclick = () => this.showBanner();
+          }
+        }
+      },
+
+      // Focus trap for accessibility
+      trapFocus(element) {
+        this.focusableElements = element.querySelectorAll(
+          'button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])'
+        );
+        this.firstFocusableElement = this.focusableElements[0];
+        this.lastFocusableElement = this.focusableElements[this.focusableElements.length - 1];
+
+        element.addEventListener('keydown', this.handleModalKeydown.bind(this));
+      },
+
+      // Remove focus trap
+      removeFocusTrap() {
+        const banner = document.getElementById('cookie-banner');
+        if (banner) {
+          banner.removeEventListener('keydown', this.handleModalKeydown.bind(this));
+        }
+      },
+
+      // Handle keyboard navigation in modal
+      handleModalKeydown(e) {
+        if (e.key === 'Tab') {
+          if (e.shiftKey) {
+            if (document.activeElement === this.firstFocusableElement) {
+              e.preventDefault();
+              this.lastFocusableElement.focus();
+            }
+          } else {
+            if (document.activeElement === this.lastFocusableElement) {
+              e.preventDefault();
+              this.firstFocusableElement.focus();
+            }
+          }
+        }
+      }
+    };
+
+    // Global function for "Enable Cookies" buttons
+    function showCookieBanner() {
+      CookieConsent.showBanner();
+    }
+
+    // Initialize consent system when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      // Attach event listeners for granular consent
+      const essentialBtn = document.getElementById('cookie-essential');
+      const spotifyBtn = document.getElementById('cookie-spotify');
+      const allBtn = document.getElementById('cookie-all');
+
+      if (essentialBtn) {
+        essentialBtn.addEventListener('click', () => CookieConsent.acceptEssential());
+      }
+
+      if (spotifyBtn) {
+        spotifyBtn.addEventListener('click', () => CookieConsent.acceptSpotify());
+      }
+
+      if (allBtn) {
+        allBtn.addEventListener('click', () => CookieConsent.acceptAll());
+      }
+
+      // ESC key to close banner
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          const banner = document.getElementById('cookie-banner');
+          if (banner && banner.classList.contains('visible')) {
+            CookieConsent.hideBanner();
+          }
+        }
+      });
+
+      // Footer Cookie Settings link
+      const footerCookieSettings = document.getElementById('footer-cookie-settings');
+      if (footerCookieSettings) {
+        footerCookieSettings.addEventListener('click', (e) => {
+          e.preventDefault();
+          CookieConsent.showBanner();
+        });
+      }
+
+      // Initialize the consent system
+      CookieConsent.init();
+    });
   </script>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-modal="true" aria-live="polite"
+    aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-desc" style="display: none;">
+    <div class="cookie-banner-content">
+      <div class="cookie-banner-text">
+        <h3 id="cookie-banner-title" class="cookie-banner-heading">Cookie Settings</h3>
+        <p id="cookie-banner-desc">
+          Choose your cookie preferences: All Features, Essential + Our Spotify Playlist, or Essential Only.
+          <a href="/privacy.html" class="cookie-banner-link"> See our Privacy & Cookie Policy</a>
+        </p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button type="button" id="cookie-all" class="cookie-btn cookie-btn-all">Accept All</button>
+        <button type="button" id="cookie-spotify" class="cookie-btn cookie-btn-spotify">
+          <span class="btn-text-desktop">Accept Essential + Reever Spotify Playlist</span>
+          <span class="btn-text-mobile">Essential + Spotify</span>
+        </button>
+        <button type="button" id="cookie-essential" class="cookie-btn cookie-btn-essential">Accept Essential
+          Only</button>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
