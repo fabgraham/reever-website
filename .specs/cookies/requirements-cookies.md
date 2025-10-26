@@ -167,3 +167,18 @@ This document outlines the requirements for implementing UK GDPR-compliant cooki
 4. THE Website SHALL load Spotify iframe only after user accepts cookies
 5. THE Consent System SHALL run before any non-essential third-party scripts
 6. THE Website SHALL verify no non-essential cookies are set before consent
+
+### Requirement 13: Cookie Banner Visual Design
+
+**User Story:** As a website visitor, I want the cookie banner to feel consistent with the Reever brand while remaining unobtrusive, so that I trust the site without feeling interrupted
+
+#### Acceptance Criteria
+
+1. THE Cookie Consent Banner SHALL use `position: fixed` with a 24px offset from the bottom edge and 24px horizontal margin, so pages can scroll underneath while the banner appears to float
+2. THE Cookie Consent Banner on viewports ≥ 768px SHALL cap its width at 960px, center itself horizontally, and apply a 20px border radius and soft drop shadow to match the floating card look from the reference design
+3. THE Banner background SHALL use a soft tint derived from the Reever accent palette (`--accent` / `#f05a7e` family) with a foreground color that meets WCAG AA contrast (≥ 4.5:1)
+4. THE Banner heading text SHALL be bold, include the cookie emoji (🍪), and sit above the body copy with 8–12px spacing
+5. THE Primary action button ("Accept all cookies") SHALL use a solid `#f05a7e` (or `--accent`) background with white text, 12px border radius, and 16px horizontal padding
+6. THE Secondary buttons ("Reject all cookies", "Manage cookies") SHALL be rendered as outline buttons using a 1.5px border in `#f05a7e`, transparent background matching the banner, and the same height, radius, and padding as the primary button
+7. THE Action buttons on viewports ≥ 768px SHALL align horizontally to the right with 12px spacing; on smaller viewports, THEY SHALL stack vertically with 8px spacing and full-width layout
+8. THE Banner internal padding SHALL be 24px on all sides for desktop and 16px for mobile, ensuring the text never touches the edges of the floating card

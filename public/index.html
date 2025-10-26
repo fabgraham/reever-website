@@ -1264,16 +1264,17 @@
     /* Cookie Consent Banner */
     .cookie-banner {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(120deg, var(--bg-alt) 0%, var(--bg-alt-dark) 100%);
-      box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.1);
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
       padding: 1.5rem;
+      background: rgba(240, 90, 126, 0.70);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(240, 90, 126, 0.3), 0 4px 16px rgba(0, 0, 0, 0.1);
       z-index: 1000;
-      transform: translateY(100%);
+      transform: translateY(calc(100% + 40px));
       transition: transform 0.3s ease;
-      border-top: 3px solid var(--accent);
+      backdrop-filter: blur(8px);
     }
 
     .cookie-banner.visible {
@@ -1287,159 +1288,234 @@
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
+      justify-content: space-between;
     }
 
     .cookie-banner-text {
       flex: 1;
+      color: var(--text);
     }
 
     .cookie-banner-heading {
-      margin: 0 0 0.5rem;
-      font-size: 1.2rem;
+      margin: 0 0 12px;
+      font-size: 1.3rem;
       font-weight: 700;
-      color: var(--text);
+      color: #ffffff;
+      letter-spacing: -0.01em;
     }
 
     .cookie-banner-text p {
       margin: 0;
-      line-height: 1.5;
-      color: var(--text);
+      line-height: 1.55;
+      color: rgba(0, 0, 0, 0.75);
     }
 
     .cookie-banner-link {
-      color: var(--accent);
+      color: rgba(0, 0, 0, 0.75);
+      font-weight: 550;
       text-decoration: none;
-      font-weight: 500;
     }
 
     .cookie-banner-link:hover,
-    .cookie-banner-link:focus {
+    .cookie-banner-link:focus,
+    .cookie-banner-link:focus-visible {
+      color: #ffffff;
       text-decoration: underline;
     }
 
     .cookie-banner-actions {
       display: flex;
-      gap: 0.75rem;
-      flex-shrink: 0;
+      gap: 12px;
+      justify-content: flex-end;
+      align-items: center;
       flex-wrap: wrap;
     }
 
     .cookie-btn {
-      padding: 0.6em 1.2em;
-      border-radius: 1.5em;
-      border: 2px solid var(--accent);
-      font-weight: 500;
+      border-radius: 12px;
+      padding: 0.75em 1.5em;
+      border: 1.5px solid transparent;
+      font-weight: 550;
+      font-size: 0.95rem;
+      line-height: 1.2;
       cursor: pointer;
-      transition: transform 0.2s, background 0.2s, color 0.2s;
-      font-size: 0.9rem;
-      min-width: 120px;
-      flex: 1;
+      transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
+      min-width: 160px;
     }
 
-    .cookie-btn:hover,
-    .cookie-btn:focus {
-      transform: translateY(-1px);
-      outline: none;
+    .cookie-btn:focus-visible {
+      outline: 3px solid rgba(240, 90, 126, 0.4);
+      outline-offset: 2px;
     }
 
-    .cookie-btn-all {
+    .cookie-btn-primary {
       background: var(--accent);
-      color: #fff;
       border-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 18px 28px rgba(240, 90, 126, 0.24);
     }
 
-    .cookie-btn-all:hover,
-    .cookie-btn-all:focus {
+    .cookie-btn-primary:hover,
+    .cookie-btn-primary:focus-visible {
       background: var(--accent-dark);
       border-color: var(--accent-dark);
+      box-shadow: 0 16px 32px rgba(240, 90, 126, 0.3);
     }
 
-    .cookie-btn-spotify {
-      background: #fff;
-      color: var(--accent);
-      border-color: var(--accent);
+    .cookie-btn-outline {
+      background: transparent;
+      color: rgba(0, 0, 0, 0.70);
+      border-color: rgba(255, 255, 255, 0.8);
     }
 
-    .cookie-btn-spotify:hover,
-    .cookie-btn-spotify:focus {
-      background: var(--bg-alt);
+    .cookie-btn-outline:hover,
+    .cookie-btn-outline:focus-visible {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border-color: #ffffff;
     }
 
-    .cookie-btn-essential {
-      background: #fff;
-      color: var(--accent);
-      border-color: var(--accent);
+    .cookie-preferences {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 2px solid rgba(255, 255, 255, 0.8);
+      display: none;
+      animation: cookiePreferencesFade 0.3s ease;
     }
 
-    .cookie-btn-essential:hover,
-    .cookie-btn-essential:focus {
-      background: var(--bg-alt);
+    .cookie-preferences.is-open {
+      display: block;
+    }
+
+    .cookie-preferences-header {
+      margin-bottom: 12px;
+      color: rgba(0, 0, 0, 0.75);
+    }
+
+    .cookie-preferences-title {
+      font-weight: 700;
+      margin: 0 0 4px;
+      color: #ffffff;
+    }
+
+    .cookie-preferences-copy {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .cookie-preferences fieldset {
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cookie-toggle {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 0;
+    }
+
+    .cookie-toggle input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .cookie-toggle span {
+      display: block;
+    }
+
+    .cookie-toggle strong {
+      display: block;
+      font-size: 1rem;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .cookie-toggle small {
+      display: block;
+      font-size: 0.85rem;
+      color: rgba(0, 0, 0, 0.75);
+      margin-top: 4px;
+      font-weight: 400;
+    }
+
+    .cookie-preferences-actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .cookie-link-button {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.75);
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+    }
+
+    .cookie-link-button:hover,
+    .cookie-link-button:focus-visible {
+      color: #ffffff;
+      outline: none;
+      text-decoration-thickness: 3px;
+    }
+
+    @keyframes cookiePreferencesFade {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 768px) {
+      .cookie-banner {
+        padding: 16px;
+        width: calc(100% - 32px);
+      }
+
       .cookie-banner-content {
         flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
+        gap: 20px;
+        align-items: stretch;
       }
 
       .cookie-banner-actions {
         width: 100%;
         flex-direction: column;
-        gap: 0.75rem;
+        align-items: stretch;
       }
 
       .cookie-btn {
         width: 100%;
-        flex: none;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .cookie-banner-actions {
-        gap: 0.5rem;
+        min-width: 0;
       }
 
-      .cookie-btn {
-        font-size: 0.85rem;
-        padding: 0.5em 1em;
-      }
-
-      .btn-text-desktop {
-        display: none;
-      }
-
-      .btn-text-mobile {
-        display: inline;
-      }
-    }
-
-    @media (min-width: 601px) {
-      .btn-text-desktop {
-        display: inline;
-      }
-
-      .btn-text-mobile {
-        display: none;
+      .cookie-banner-heading {
+        font-size: 1.18rem;
       }
     }
 
     @media (max-width: 480px) {
-      .cookie-banner {
-        padding: 1rem;
-      }
-
-      .cookie-banner-heading {
-        font-size: 1.1rem;
-      }
-
       .cookie-banner-text p {
-        font-size: 0.9rem;
-      }
-
-      .cookie-btn {
-        font-size: 0.9rem;
-        padding: 0.6em 1.2em;
+        font-size: 0.92rem;
       }
     }
   </style>
@@ -1735,7 +1811,7 @@
             placeholder="Tell us about your event, preferred dates, and any special requirements..."></textarea>
         </fieldset>
         <div id="form-privacy-notice" class="form-privacy-notice" style="display: none;">
-          <p>Please not we use your information to respond to your enquiry and discuss potential bookings.
+          <p>Please note we use your information to respond to your enquiry and discuss potential bookings.
             You can check our <a href="/privacy.html">Privacy Policy</a> for details on how we handle your data.</p>
         </div>
         <div><button type="submit" class="cta-btn">Send</button></div>
@@ -2264,6 +2340,10 @@
     const CookieConsent = {
       STORAGE_KEY: 'reeverCookieConsent',
       EXPIRY_MONTHS: 6,
+      boundHandleModalKeydown: null,
+      focusableElements: [],
+      firstFocusableElement: null,
+      lastFocusableElement: null,
 
       // Check if user has made a choice
       hasConsent() {
@@ -2339,17 +2419,19 @@
       showBanner() {
         const banner = document.getElementById('cookie-banner');
         if (banner) {
+          this.closePreferences({ silent: true });
+          this.syncPreferencesUI();
           banner.style.display = 'block';
-          setTimeout(() => {
+          const animate = window.requestAnimationFrame
+            ? window.requestAnimationFrame.bind(window)
+            : (cb) => setTimeout(cb, 16);
+          animate(() => {
             banner.classList.add('visible');
-            // Focus first button for accessibility
             const firstButton = banner.querySelector('.cookie-btn');
             if (firstButton) {
               firstButton.focus();
             }
-          }, 10);
-
-          // Trap focus within banner
+          });
           this.trapFocus(banner);
         }
       },
@@ -2358,6 +2440,7 @@
       hideBanner() {
         const banner = document.getElementById('cookie-banner');
         if (banner) {
+          this.closePreferences({ silent: true });
           banner.classList.remove('visible');
           setTimeout(() => {
             banner.style.display = 'none';
@@ -2401,6 +2484,87 @@
             break;
           default:
             this.blockThirdPartyServices();
+        }
+      },
+
+      // Toggle preferences panel visibility
+      togglePreferences() {
+        const preferences = document.getElementById('cookie-preferences');
+        if (!preferences) return;
+
+        if (preferences.hasAttribute('hidden')) {
+          this.openPreferences();
+        } else {
+          this.closePreferences();
+        }
+      },
+
+      // Open preferences panel
+      openPreferences() {
+        const banner = document.getElementById('cookie-banner');
+        const preferences = document.getElementById('cookie-preferences');
+        const manageButton = document.getElementById('cookie-manage');
+        if (!preferences) return;
+
+        preferences.removeAttribute('hidden');
+        preferences.classList.add('is-open');
+
+        if (manageButton) {
+          manageButton.setAttribute('aria-expanded', 'true');
+        }
+
+        this.syncPreferencesUI();
+
+        const firstSetting = preferences.querySelector(
+          'input:not([type="hidden"]), button, [href], [tabindex]:not([tabindex="-1"])'
+        );
+        if (firstSetting) {
+          setTimeout(() => firstSetting.focus(), 50);
+        }
+
+        if (banner) {
+          this.trapFocus(banner);
+        }
+      },
+
+      // Close preferences panel
+      closePreferences(options = {}) {
+        const { silent = false } = options;
+        const banner = document.getElementById('cookie-banner');
+        const preferences = document.getElementById('cookie-preferences');
+        const manageButton = document.getElementById('cookie-manage');
+        if (!preferences) return;
+
+        preferences.classList.remove('is-open');
+        if (!preferences.hasAttribute('hidden')) {
+          preferences.setAttribute('hidden', '');
+        }
+
+        if (manageButton) {
+          manageButton.setAttribute('aria-expanded', 'false');
+          if (!silent) {
+            manageButton.focus();
+          }
+        }
+
+        if (banner) {
+          this.trapFocus(banner);
+        }
+      },
+
+      // Sync preference UI with stored consent level
+      syncPreferencesUI() {
+        const manageButton = document.getElementById('cookie-manage');
+        const preferences = document.getElementById('cookie-preferences');
+        const spotifyToggle = document.getElementById('cookie-spotify-toggle');
+        const consentLevel = this.getConsent();
+
+        if (manageButton && preferences) {
+          manageButton.setAttribute('aria-expanded', preferences.hasAttribute('hidden') ? 'false' : 'true');
+        }
+
+        if (spotifyToggle) {
+          spotifyToggle.checked = consentLevel === 'spotify' || consentLevel === 'all';
         }
       },
 
@@ -2462,36 +2626,53 @@
 
       // Focus trap for accessibility
       trapFocus(element) {
-        this.focusableElements = element.querySelectorAll(
-          'button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])'
-        );
-        this.firstFocusableElement = this.focusableElements[0];
-        this.lastFocusableElement = this.focusableElements[this.focusableElements.length - 1];
+        if (!element) return;
 
-        element.addEventListener('keydown', this.handleModalKeydown.bind(this));
+        const focusable = Array.from(
+          element.querySelectorAll('button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])')
+        ).filter((el) => !el.hasAttribute('disabled') && !el.closest('[hidden]'));
+
+        if (!focusable.length) {
+          this.focusableElements = [];
+          this.firstFocusableElement = null;
+          this.lastFocusableElement = null;
+          return;
+        }
+
+        this.focusableElements = focusable;
+        this.firstFocusableElement = focusable[0];
+        this.lastFocusableElement = focusable[focusable.length - 1];
+
+        if (!this.boundHandleModalKeydown) {
+          this.boundHandleModalKeydown = this.handleModalKeydown.bind(this);
+        }
+
+        element.removeEventListener('keydown', this.boundHandleModalKeydown);
+        element.addEventListener('keydown', this.boundHandleModalKeydown);
       },
 
       // Remove focus trap
       removeFocusTrap() {
         const banner = document.getElementById('cookie-banner');
-        if (banner) {
-          banner.removeEventListener('keydown', this.handleModalKeydown.bind(this));
+        if (banner && this.boundHandleModalKeydown) {
+          banner.removeEventListener('keydown', this.boundHandleModalKeydown);
         }
+        this.focusableElements = [];
+        this.firstFocusableElement = null;
+        this.lastFocusableElement = null;
       },
 
       // Handle keyboard navigation in modal
       handleModalKeydown(e) {
-        if (e.key === 'Tab') {
+        if (e.key === 'Tab' && this.focusableElements && this.focusableElements.length) {
           if (e.shiftKey) {
             if (document.activeElement === this.firstFocusableElement) {
               e.preventDefault();
               this.lastFocusableElement.focus();
             }
-          } else {
-            if (document.activeElement === this.lastFocusableElement) {
-              e.preventDefault();
-              this.firstFocusableElement.focus();
-            }
+          } else if (document.activeElement === this.lastFocusableElement) {
+            e.preventDefault();
+            this.firstFocusableElement.focus();
           }
         }
       }
@@ -2504,29 +2685,56 @@
 
     // Initialize consent system when page loads
     document.addEventListener('DOMContentLoaded', () => {
-      // Attach event listeners for granular consent
-      const essentialBtn = document.getElementById('cookie-essential');
-      const spotifyBtn = document.getElementById('cookie-spotify');
-      const allBtn = document.getElementById('cookie-all');
+      const acceptAllBtn = document.getElementById('cookie-accept-all');
+      const rejectBtn = document.getElementById('cookie-reject');
+      const manageBtn = document.getElementById('cookie-manage');
+      const preferencesForm = document.getElementById('cookie-preferences-form');
+      const preferencesCancel = document.getElementById('cookie-preferences-cancel');
+      const spotifyToggle = document.getElementById('cookie-spotify-toggle');
 
-      if (essentialBtn) {
-        essentialBtn.addEventListener('click', () => CookieConsent.acceptEssential());
+      if (acceptAllBtn) {
+        acceptAllBtn.addEventListener('click', () => CookieConsent.acceptAll());
       }
 
-      if (spotifyBtn) {
-        spotifyBtn.addEventListener('click', () => CookieConsent.acceptSpotify());
+      if (rejectBtn) {
+        rejectBtn.addEventListener('click', () => CookieConsent.acceptEssential());
       }
 
-      if (allBtn) {
-        allBtn.addEventListener('click', () => CookieConsent.acceptAll());
+      if (manageBtn) {
+        manageBtn.addEventListener('click', () => CookieConsent.togglePreferences());
       }
 
-      // ESC key to close banner
+      if (preferencesForm) {
+        preferencesForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const spotifyEnabled = spotifyToggle ? spotifyToggle.checked : false;
+          const currentLevel = CookieConsent.getConsent();
+          if (spotifyEnabled) {
+            if (currentLevel === 'all') {
+              CookieConsent.acceptAll();
+            } else {
+              CookieConsent.acceptSpotify();
+            }
+          } else {
+            CookieConsent.acceptEssential();
+          }
+        });
+      }
+
+      if (preferencesCancel) {
+        preferencesCancel.addEventListener('click', () => CookieConsent.closePreferences());
+      }
+
+      // ESC key to close banner (disabled on first visit to ensure consent capture)
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
           const banner = document.getElementById('cookie-banner');
           if (banner && banner.classList.contains('visible')) {
-            CookieConsent.hideBanner();
+            // Only allow ESC if user has previously made a consent choice
+            if (CookieConsent.hasConsent()) {
+              CookieConsent.hideBanner();
+            }
+            // On first visit, ESC is disabled to ensure consent is captured
           }
         }
       });
@@ -2540,6 +2748,9 @@
         });
       }
 
+      // TEMPORARY: Clear consent to test improved banner
+      CookieConsent.clearConsent();
+
       // Initialize the consent system
       CookieConsent.init();
     });
@@ -2550,21 +2761,42 @@
     aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-desc" style="display: none;">
     <div class="cookie-banner-content">
       <div class="cookie-banner-text">
-        <h3 id="cookie-banner-title" class="cookie-banner-heading">Cookie Settings</h3>
+        <h3 id="cookie-banner-title" class="cookie-banner-heading">Cookies 🍪</h3>
         <p id="cookie-banner-desc">
-          Choose your cookie preferences: All Features, Essential + Our Spotify Playlist, or Essential Only.
-          <a href="/privacy.html" class="cookie-banner-link"> See our Privacy & Cookie Policy</a>
+          We use essential cookies to keep the site running and optional ones for the Spotify Playlist.
+          <a href="/privacy.html" class="cookie-banner-link">See our Privacy & Cookie Policy</a>.
         </p>
       </div>
-      <div class="cookie-banner-actions">
-        <button type="button" id="cookie-all" class="cookie-btn cookie-btn-all">Accept All</button>
-        <button type="button" id="cookie-spotify" class="cookie-btn cookie-btn-spotify">
-          <span class="btn-text-desktop">Accept Essential + Reever Spotify Playlist</span>
-          <span class="btn-text-mobile">Essential + Spotify</span>
-        </button>
-        <button type="button" id="cookie-essential" class="cookie-btn cookie-btn-essential">Accept Essential
-          Only</button>
+      <div class="cookie-banner-actions" role="group" aria-label="Cookie consent choices">
+        <button type="button" id="cookie-accept-all" class="cookie-btn cookie-btn-outline">Allow all cookies</button>
+        <button type="button" id="cookie-reject" class="cookie-btn cookie-btn-outline">Essential only</button>
+        <button type="button" id="cookie-manage" class="cookie-btn cookie-btn-outline" aria-expanded="false"
+          aria-controls="cookie-preferences">Manage cookies</button>
       </div>
+    </div>
+    <div id="cookie-preferences" class="cookie-preferences" hidden>
+      <div class="cookie-preferences-header">
+        <p class="cookie-preferences-title">Fine-tune your choices</p>
+        <p class="cookie-preferences-copy">Toggle optional cookies and save your selection.</p>
+      </div>
+      <form id="cookie-preferences-form">
+        <fieldset>
+          <legend class="sr-only">Optional cookies</legend>
+          <label class="cookie-toggle" for="cookie-spotify-toggle">
+            <input type="checkbox" id="cookie-spotify-toggle" name="spotify-cookies"
+              aria-label="Enable Spotify playlist embeds">
+            <span>
+              <strong>Spotify Playlist</strong>
+              <small>Allows the Spotify playlist to play directly on our site. When disabled, Spotify content is
+                blocked.</small>
+            </span>
+          </label>
+        </fieldset>
+        <div class="cookie-preferences-actions">
+          <button type="submit" class="cookie-btn cookie-btn-outline">Save Preferences</button>
+          <button type="button" id="cookie-preferences-cancel" class="cookie-link-button">Cancel</button>
+        </div>
+      </form>
     </div>
   </div>
 </body>

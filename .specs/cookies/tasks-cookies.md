@@ -11,10 +11,11 @@
 - [x] 2. Cookie Consent Banner HTML & CSS
   - Add cookie banner HTML structure to index.html before closing body tag
   - Create CSS styles with equal prominence for Accept/Decline buttons (same size, weight, styling)
+  - Implement floating card layout: fixed banner with 24px inset, max-width 960px, accent tint background, contrast-checked typography, and responsive padding/spacing mirroring the reference design
   - Add accessibility attributes (aria-modal="true", aria-describedby, role="dialog")
   - Implement smooth slide-up animation and responsive design
   - Update banner text to be specific: "We use cookies for Spotify embeds and optional Netlify login"
-  - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 2.1, 2.2, 2.3, 9.4, 9.5_
+  - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 2.1, 2.2, 2.3, 9.4, 9.5, 13.1, 13.2, 13.3, 13.4, 13.5, 13.6, 13.7, 13.8_
 
 - [x] 3. Consent Management JavaScript with Accessibility
   - Implement CookieConsent object with 6-month expiry (not 365 days)

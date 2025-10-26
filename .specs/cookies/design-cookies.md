@@ -64,11 +64,12 @@ This design implements a lightweight, UK GDPR-compliant cookie consent system fo
 ```
 
 **CSS Styling:**
-- Fixed bottom position with z-index above content
-- Responsive: stacks buttons on mobile
-- Smooth slide-up animation on show/hide
-- Uses existing CSS variables for colors
-- Accessible focus states
+- Floating card set with `position: fixed`, 24px bottom inset, 24px horizontal margin, max-width 960px, centered, 20px radius, and a soft shadow so content scrolls beneath it
+- Background uses a tinted accent (`rgba(240, 90, 126, 0.12)` or equivalent) with text colors chosen for ≥4.5:1 contrast; heading line starts with "But first, cookies 🍪" and sits above body copy
+- Primary button adopts solid `var(--accent)` background with white text; secondary buttons share dimensions but use transparent fill with 1.5px accent outline
+- Buttons align horizontally with 12px gaps on ≥768px viewports and stack full width with 8px spacing on smaller screens
+- Inner padding is 24px desktop / 16px mobile, typography follows existing font stack with consistent line-heights, and hover/focus states remain WCAG-compliant
+- Smooth slide-up animation on show/hide and persistent focus outlines ensure accessibility
 
 ### 2. Consent Manager (JavaScript)
 
