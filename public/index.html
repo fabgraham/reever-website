@@ -2390,7 +2390,7 @@
             expiry: Date.now() + (this.EXPIRY_MONTHS * 30 * 24 * 60 * 60 * 1000) // 6 months
           };
           localStorage.setItem(this.STORAGE_KEY, JSON.stringify(data));
-          console.log('Consent saved:', level);
+
         } catch (e) {
           console.warn('Error saving consent:', e);
         }
@@ -2593,7 +2593,7 @@
           iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
           iframe.loading = 'lazy';
           iframe.style.borderRadius = '12px';
-          iframe.setAttribute('data-testid', 'embed-iframe');
+
           spotifyPlaceholder.replaceWith(iframe);
         }
       },
@@ -2748,8 +2748,7 @@
         });
       }
 
-      // TEMPORARY: Clear consent to test improved banner
-      CookieConsent.clearConsent();
+
 
       // Initialize the consent system
       CookieConsent.init();
