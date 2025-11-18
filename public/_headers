@@ -28,11 +28,29 @@
 
 # Security headers
 /*
+  # Prevent clickjacking
   X-Frame-Options: DENY
+
+  # Prevent MIME type sniffing
   X-Content-Type-Options: nosniff
+
+  # Enable XSS protection
   X-XSS-Protection: 1; mode=block
+
+  # Control referrer information
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+  # Restrict permissions
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()
+
+  # Force HTTPS (HSTS) - 1 year, include subdomains
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # Cross-origin resource policy
+  Cross-Origin-Resource-Policy: same-origin
+
+  # Content Security Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://*.netlify.com https://www.youtube.com; frame-src https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
 
 # Favicon and manifest
 /favicon/*
